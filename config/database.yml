@@ -11,3 +11,4 @@ development:
   host: localhost
   username: hardikhardiya
   password: postgres
+  pool: 5

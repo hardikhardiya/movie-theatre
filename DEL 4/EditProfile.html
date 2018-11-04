@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="css/contactstyle.css" type="text/css" media="all" />
+<link rel="stylesheet" href="css/faqstyle.css" type="text/css" media="all" />
+<link href="css/single.css" rel='stylesheet' type='text/css' />
+<link href="css/medile.css" rel='stylesheet' type='text/css' />
+<!-- banner-slider -->
+<link href="css/jquery.slidey.min.css" rel="stylesheet">
+<!-- //banner-slider -->
+<!-- pop-up -->
+<link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+<!-- //pop-up -->
+<!-- font-awesome icons -->
+<link rel="stylesheet" href="css/font-awesome.min.css" />
+<!-- //font-awesome icons -->
+<!-- js -->
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<!-- //js -->
+<!-- banner-bottom-plugin -->
+<link href="css/owl.carousel.css" rel="stylesheet" type="text/css" media="all">
+<script src="js/owl.carousel.js"></script>
+<script>
+  $(document).ready(function() { 
+    $("#owl-demo").owlCarousel({
+   
+      autoPlay: 3000, //Set AutoPlay to 3 seconds
+   
+      items : 5,
+      itemsDesktop : [640,4],
+      itemsDesktopSmall : [414,3]
+   
+    });
+   
+  }); 
+</script> 
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript">
+  jQuery(document).ready(function($) {
+    $(".scroll").click(function(event){   
+      event.preventDefault();
+      $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+    });
+  });
+</script>
+<!-- start-smoth-scrolling -->
+</head>
+  
+<body>
+<!-- header -->
+  <div class="header">
+    <div class="container">
+      <div class="w3layouts_logo">
+        <a href="index.html"><h1>UGA<span>Movies</span></h1></a>
+      </div>
+      <div class="w3_search">
+        <form action="#" method="post">
+          <input type="text" name="Search" placeholder="Search" required="">
+          <input type="submit" value="Go">
+        </form>
+      </div>
+      <div class="w3l_sign_in_register">
+        <ul>
+          <li><i class="fa fa-phone" aria-hidden="true"></i> (+1)706 308 8062</li>
+          
+        </ul>
+      </div>
+      <div class="clearfix"> </div>
+    </div>
+  </div>
+<!-- //header -->
+<!-- bootstrap-pop-up -->
+  
+  <script>
+    $('.toggle').click(function(){
+      // Switches the Icon
+      $(this).children('i').toggleClass('fa-pencil');
+      // Switches the forms  
+      $('.form').animate({
+      height: "toggle",
+      'padding-top': 'toggle',
+      'padding-bottom': 'toggle',
+      opacity: "toggle"
+      }, "slow");
+    });
+  </script>
+<!-- //bootstrap-pop-up -->
+<!-- nav -->
+  <div class="movies_nav">
+    <div class="container">
+      <nav class="navbar navbar-default">
+        <div class="navbar-header navbar-left">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+          <nav>
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="index.html">Home</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Genres <b class="caret"></b></a>
+                <ul class="dropdown-menu multi-column columns-3">
+                  <li>
+                  <div class="col-sm-4">
+                    <ul class="multi-column-dropdown">
+                      <li><a href="genres.html">Action</a></li>
+                      
+                      
+                      <li><a href="horror.html">Horror</a></li>
+                      <li><a href="genres.html">Romance</a></li>
+                      <li><a href="genres.html">Sports</a></li>
+                      
+                    </ul>
+                  </div>
+                  <div class="col-sm-4">
+                    <ul class="multi-column-dropdown">
+                      <li><a href="genres.html">Adventure</a></li>
+                      <li><a href="comedy.html">Comedy</a></li>
+                      
+                      <li><a href="genres.html">Fantasy</a></li>
+                      <li><a href="genres.html">Thriller</a></li>
+                    </ul>
+                  </div>
+                  <div class="clearfix"></div>
+                  </li>
+                </ul>
+              </li>
+              <li><a href="series.html">Book Tickets</a></li>
+              <li><a href="news.html">News</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Region <b class="caret"></b></a>
+                <ul class="dropdown-menu multi-column columns-3">
+                  <li>
+                    <div class="col-sm-4">
+                      <ul class="multi-column-dropdown">
+                        <li><a href="genres.html">Atlanta</a></li>
+                        <li><a href="genres.html">Augusta</a></li>
+                        <li><a href="genres.html">Athens</a></li>
+                        <li><a href="genres.html">Alps</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-sm-4">
+                      <ul class="multi-column-dropdown">
+                        <li><a href="genres.html">San Jose</a></li>
+                        <li><a href="genres.html">Los Angeles</a></li>
+                        <li><a href="genres.html">New York</a></li>
+                        <li><a href="genres.html">New Jersey</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-sm-4">
+                      <ul class="multi-column-dropdown">
+                        <li><a href="genres.html">Seattle</a></li>
+                        <li><a href="genres.html">Texas</a></li>
+                        <li><a href="genres.html">Chicago</a></li>
+                        <li><a href="genres.html">Miami</a></li>
+                      </ul>
+                    </div>
+                    <div class="clearfix"></div>
+                  </li>
+                </ul>
+              </li>
+              
+              <li><a href="list.html">A - z list</a></li>
+              <li><a href="login.html">Login</a></li>
+            </ul>
+          </nav>
+        </div>
+      </nav>  
+    </div>
+  </div>
+<br>
+              <div class="container-fluid">
+                <div class="container-fluid" style="width: 800px; border-style: solid;" >
+                  <h2 align="center">Edit User Information:</h2>
+  <form class="form-horizontal">
+    <div class="form-horizontal">
+    <div class="form-group">
+      
+     
+</div>
+    <div class="form-group">
+      
+      <label class="control-label col-sm-2" for="username">Username:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="username" placeholder="Change Username" name="username" required="">
+      </div>
+    </div>
+
+<div class="form-group">
+      <label class="control-label col-sm-2" for="firstName">First Name:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="firstName" placeholder="Change First Name" name="firstName" required="">
+      </div>
+    </div>
+
+<div class="form-group">
+      <label class="control-label col-sm-2" for="lastName">Last Name:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="firstName" placeholder="Change Last Name" name="lastName" required="">
+      </div>
+    </div>
+
+<div class="form-group">
+      <label class="control-label col-sm-2" for="address">Address:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="address" placeholder="Change Address" name="address" required="">
+      </div>
+    </div>
+
+<div class="form-group">
+      <label class="control-label col-sm-2" for="userID">Mobile Number:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="userID" placeholder="Change Mobile Number" name="userID" required="">
+      </div>
+    </div>
+
+<div class="form-group">
+      <label class="control-label col-sm-2" for="email">Email:</label>
+      <div class="col-sm-10">
+        <input type="email" class="form-control" id="email" placeholder="Change Email" name="email" required="">
+      </div>
+    </div>
+
+<div class="form-group">
+      <label class="control-label col-sm-2" for="promotionSub">Change Card Type:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="promotionSub" placeholder="Change Card Type" name="promotionSub" required="">
+      </div>
+    </div>
+
+<div class="form-group">
+      <label class="control-label col-sm-2" for="newsSub">Card Expiry Date:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="newsSub" placeholder="Change Card Expiry" name="newsSub" required="">
+      </div>
+    </div>
+
+<div class="form-group">
+      <label class="control-label col-sm-2" for="status">Card Zip:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="status" placeholder="Change Card Zip" name="status" required="">
+      </div>
+    </div>
+
+    <div class="col-sm-7">
+        <button type="submit" class=" btn btn-primary btn-lg">Confirm</button>
+
+        <button type="reset" class=" btn btn-secondary btn-lg">Cancel</button>
+      </div>
+
+  </form>
+
+                  
+               </div>
+                  
+                  <!----- Code for footer --------->
+                   <div class="container-fluid">
+                   	
+                   
+          
+    </body>
+</html>
