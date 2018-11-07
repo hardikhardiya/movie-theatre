@@ -52,15 +52,7 @@ Rails.application.configure do
   config.action_mailer.default :charset => "utf-8"
 
 
-  ActionMailer::Base.smtp_settings = {
-    :user_name => 'hardikhardiya',
-    :password => 'myworld@1',
-    :address => 'smtp.sendgrid.net',
-    :port => 587,
-    :authentication => :plain,
-    :enable_starttls_auto => true
-  }
-
+  
 
   # config.action_mailer.smtp_settings = {
   # :enable_starttls_auto => true,
