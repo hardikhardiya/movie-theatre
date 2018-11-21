@@ -1,163 +1,799 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
 
+<link href="/assets/home/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/assets/home/style.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="/assets/home/contactstyle.css" type="text/css" media="all" />
+<link rel="stylesheet" href="/assets/home/faqstyle.css" type="text/css" media="all" />
+<link href="/assets/home/single.css" rel='stylesheet' type='text/css' />
+<link href="/assets/home/medile.css" rel='stylesheet' type='text/css' />
+<!-- banner-slider -->
+<link href="/assets/home/jquery.slidey.min.css" rel="stylesheet">
+<!-- //banner-slider -->
+<!-- pop-up -->
+<link href="/assets/home/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+<!-- //pop-up -->
+<!-- font-awesome icons -->
+<link rel="stylesheet" href="/assets/home/font-awesome.min.css" />
+<!-- //font-awesome icons -->
+<!-- js -->
+<script type="text/javascript" src="/assets/jquery-2.1.4.min.js"></script>
+<!-- //js -->
+<!-- banner-bottom-plugin -->
+<link href="/assets/home/owl.carousel.css" rel="stylesheet" type="text/css" media="all">
+<script src="/assets/owl.carousel.js"></script>
+<script>
+	$(document).ready(function() { 
+		$("#owl-demo").owlCarousel({
+	 
+		  autoPlay: 3000, //Set AutoPlay to 3 seconds
+	 
+		  items : 5,
+		  itemsDesktop : [640,4],
+		  itemsDesktopSmall : [414,3]
+	 
+		});
+	 
+	}); 
+</script> 
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" src="/assets/move-top.js"></script>
+<script type="text/javascript" src="/assets/easing.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+<!-- start-smoth-scrolling -->
 
+	
 
-
-
-
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
-<!DOCTYPE html>
-<html>
-<head>
-<title>Movie Ticket Booking Widget Flat Responsive Widget Template :: w3layouts</title>
-<!-- for-mobile-apps -->
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-<meta name="keywords" content="Movie Ticket Booking Widget Responsive, Login form web template, Sign up Web Templates, Flat Web Templates, Login signup Responsive web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-<!-- //for-mobile-apps -->
-<link href='//fonts.googleapis.com/css?family=Kotta+One' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
-<link href="css/style_seat.css" rel="stylesheet" type="text/css" media="all" />
-<script src="js/jquery-1.11.0.min.js"></script>
-<script src="js/jquery.seat-charts.js"></script>
-</head>
-<body>
-<div class="content">
-	<h1>Movie Ticket Booking Widget</h1>
-	<div class="main">
-		<h2>Multiplex Theatre Showing Screen 1</h2>
-		<div class="demo">
-			<div id="seat-map">
-				<div class="front">SCREEN</div>					
+<!-- header -->
+	<div class="header">
+		<div class="container">
+			<div class="w3layouts_logo">
+				<a href="index.html"><h1>UGA<span>Movies</span></h1></a>
 			</div>
-			<div class="booking-details">
-				<ul class="book-left">
-					<li>Movie </li>
-					<li>Time </li>
-					<li>Tickets</li>
-					<li>Total</li>
-					<li>Seats :</li>
-				</ul>
-				<ul class="book-right">
-					<li>: Gingerclown</li>
-					<li>: April 3, 21:00</li>
-					<li>: <span id="counter">0</span></li>
-					<li>: <b><i>$</i><span id="total">0</span></b></li>
-				</ul>
-				<div class="clear"></div>
-				<ul id="selected-seats" class="scrollbar scrollbar1"></ul>
-			
-						
-				<button class="checkout-button">Book Now</button>	
-				<div id="legend"></div>
+			<div class="w3_search">
+				<%= form_tag movie_lists_path, method: :get do%>	
+				    <%= text_field_tag 'search', "", :placeholder=>"Search" %>
+					<%= submit_tag "Go" %>
+				<% end %>
 			</div>
-			<div style="clear:both"></div>
-	    </div>
+			<div class="w3l_sign_in_register">
+				<ul>
+					<li><i class="fa fa-phone" aria-hidden="true"></i> (+1)706 308 8062</li>
+					<% if user_signed_in? %>
+								<li> Logged in as <strong><%= current_user.email %></strong>.</li>
+								
+								
 
-			<script type="text/javascript">
-				var price = 10; //price
-				$(document).ready(function() {
-					var $cart = $('#selected-seats'), //Sitting Area
-					$counter = $('#counter'), //Votes
-					$total = $('#total'); //Total money
 					
-					var sc = $('#seat-map').seatCharts({
-						map: [  //Seating chart
-							'aaaaaaaaaa',
-							'aaaaaaaaaa',
-							'__________',
-							'aaaaaaaa__',
-							'aaaaaaaaaa',
-							'aaaaaaaaaa',
-							'aaaaaaaaaa',
-							'aaaaaaaaaa',
-							'aaaaaaaaaa',
-							'__aaaaaa__'
-						],
-						naming : {
-							top : false,
-							getLabel : function (character, row, column) {
-								return column;
-							}
-						},
-						legend : { //Definition legend
-							node : $('#legend'),
-							items : [
-								[ 'a', 'available',   'Available' ],
-								[ 'a', 'unavailable', 'Sold'],
-								[ 'a', 'selected', 'Selected']
-							]					
-						},
-						click: function () { //Click event
-							if (this.status() == 'available') { //optional seat
-								$('<li>Row'+(this.settings.row+1)+' Seat'+this.settings.label+'</li>')
-									.attr('id', 'cart-item-'+this.settings.id)
-									.data('seatId', this.settings.id)
-									.appendTo($cart);
-
-								$counter.text(sc.find('selected').length+1);
-								$total.text(recalculateTotal(sc)+price);
-											
-								return 'selected';
-							} else if (this.status() == 'selected') { //Checked
-									//Update Number
-									$counter.text(sc.find('selected').length-1);
-									//update totalnum
-									$total.text(recalculateTotal(sc)-price);
-										
-									//Delete reservation
-									$('#cart-item-'+this.settings.id).remove();
-									//optional
-									return 'available';
-							} else if (this.status() == 'unavailable') { //sold
-								return 'unavailable';
-							} else {
-								return this.style();
-							}
-						}
-					});
-					//sold seat
-					sc.get(['1_2', '4_4','4_5','6_6','6_7','8_5','8_6','8_7','8_8', '10_1', '10_2']).status('unavailable');
-						
-				});
-				//sum total money
-				function recalculateTotal(sc) {
-					var total = 0;
-					sc.find('selected').each(function () {
-						total += price;
-					});
-							
-					return total;
-				}
-			</script>
+				</ul>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
 	</div>
-	<p class="copy_rights">&copy; 2016 Movie Ticket Booking Widget. All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank"> W3layouts</a></p>
+<!-- //header -->
+<!-- bootstrap-pop-up -->
+	
+	<script>
+		$('.toggle').click(function(){
+		  // Switches the Icon
+		  $(this).children('i').toggleClass('fa-pencil');
+		  // Switches the forms  
+		  $('.form').animate({
+			height: "toggle",
+			'padding-top': 'toggle',
+			'padding-bottom': 'toggle',
+			opacity: "toggle"
+		  }, "slow");
+		});
+	</script>
+<!-- //bootstrap-pop-up -->
+<!-- nav -->
+	<div class="movies_nav">
+		<div class="container">
+			<nav class="navbar navbar-default">
+				<div class="navbar-header navbar-left">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+					<nav>
+						<ul class="nav navbar-nav">
+							<li class="active"><%= link_to "Home", root_path%></li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Genres <b class="caret"></b></a>
+								<ul class="dropdown-menu multi-column columns-3">
+									<li>
+									<div class="col-sm-4">
+										<ul class="multi-column-dropdown">
+											<li><a href="genres.html">Action</a></li>
+											
+											
+											<li><a href="horror.html">Horror</a></li>
+											<li><a href="genres.html">Romance</a></li>
+											<li><a href="genres.html">Sports</a></li>
+											
+										</ul>
+									</div>
+									<div class="col-sm-4">
+										<ul class="multi-column-dropdown">
+											<li><a href="genres.html">Adventure</a></li>
+											<li><a href="comedy.html">Comedy</a></li>
+											
+											<li><a href="genres.html">Fantasy</a></li>
+											<li><a href="genres.html">Thriller</a></li>
+										</ul>
+									</div>
+									<div class="clearfix"></div>
+									</li>
+								</ul>
+							</li>
+							<li>
+                               <%= link_to "Book Tickets", movie_lists_path%>
+							</li>
+							<li><a href="news.html">News</a></li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Region <b class="caret"></b></a>
+								<ul class="dropdown-menu multi-column columns-3">
+									<li>
+										<div class="col-sm-4">
+											<ul class="multi-column-dropdown">
+												<li><a href="genres.html">Atlanta</a></li>
+												<li><a href="genres.html">Augusta</a></li>
+												<li><a href="genres.html">Athens</a></li>
+												<li><a href="genres.html">Alps</a></li>
+											</ul>
+										</div>
+										<div class="col-sm-4">
+											<ul class="multi-column-dropdown">
+												<li><a href="genres.html">San Jose</a></li>
+												<li><a href="genres.html">Los Angeles</a></li>
+												<li><a href="genres.html">New York</a></li>
+												<li><a href="genres.html">New Jersey</a></li>
+											</ul>
+										</div>
+										<div class="col-sm-4">
+											<ul class="multi-column-dropdown">
+												<li><a href="genres.html">Seattle</a></li>
+												<li><a href="genres.html">Texas</a></li>
+												<li><a href="genres.html">Chicago</a></li>
+												<li><a href="genres.html">Miami</a></li>
+											</ul>
+										</div>
+										<div class="clearfix"></div>
+									</li>
+								</ul>
+							</li>
+							
+							<li>  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
+							
+							<li>  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+								</li>
+
+		 
+							<% else %>
+							  	<li>
+								  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></li>
+								<li>  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
+								<!-- <li>  <%#= link_to "Admin", admin_user_session_path, :class => 'navbar-link'  %>
+								</li>  --> 
+							<% end %>
+						</ul>
+					</nav>
+				</div>
+			</nav>	
+		</div>
+	</div>
+<!-- //nav -->
+<!-- banner -->
+	<div id="slidey" style="display:none;">
+		<ul>
+			<li><img src="assets/5.jpg" alt=" "><p class='title'>Tarzan</p><p class='description'> Tarzan, having acclimated to life in London, is called back to his former home in the jungle to investigate the activities at a mining encampment.</p></li>
+			<li><img src="assets/2.jpg" alt=" "><p class='title'>Maximum Ride</p><p class='description'>Six children, genetically cross-bred with avian DNA, take flight around the country to discover their origins. Along the way, their mysterious past is ...</p></li>
+			<li><img src="assets/3.jpg" alt=" "><p class='title'>Independence</p><p class='description'>The fate of humanity hangs in the balance as the U.S. President and citizens decide if these aliens are to be trusted ...or feared.</p></li>
+			<li><img src="assets/4.jpg" alt=" "><p class='title'>Central Intelligence</p><p class='description'>Bullied as a teen for being overweight, Bob Stone (Dwayne Johnson) shows up to his high school reunion looking fit and muscular. Claiming to be on a top-secret ...</p></li>
+			<li><img src="assets/6.jpg" alt=" "><p class='title'>Ice Age</p><p class='description'>In the film's epilogue, Scrat keeps struggling to control the alien ship until it crashes on Mars, destroying all life on the planet.</p></li>
+			<li><img src="assets/7.jpg" alt=" "><p class='title'>X - Man</p><p class='description'>In 1977, paranormal investigators Ed (Patrick Wilson) and Lorraine Warren come out of a self-imposed sabbatical to travel to Enfield, a borough in north ...</p></li>
+		</ul>   	
+    </div>
+    <script src="/assets/jquery.slidey.js"></script>
+    <script src="/assets/jquery.dotdotdot.min.js"></script>
+	   <script type="text/javascript">
+			$("#slidey").slidey({
+				interval: 8000,
+				listCount: 5,
+				autoplay: false,
+				showList: true
+			});
+			$(".slidey-list-description").dotdotdot();
+		</script>
+<!-- //banner -->
+<!-
+<!-- //banner-bottom -->
+
+  </nav>
 </div>
-<script src="js/jquery.nicescroll.js"></script>
-<script src="js/scripts.js"></script>
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<!-- general -->
+	<div class="general">
+		<h4 class="latest-text w3_latest_text">Featured Movies</h4>
+		<div class="container">
+			<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+				<ul id="myTab" class="nav nav-tabs" role="tablist">
+					<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Featured</a></li>
+					<li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">Top viewed</a></li>
+					<li role="presentation"><a href="#rating" id="rating-tab" role="tab" data-toggle="tab" aria-controls="rating" aria-expanded="true">Top Rating</a></li>
+					<li role="presentation"><a href="#imdb" role="tab" id="imdb-tab" data-toggle="tab" aria-controls="imdb" aria-expanded="false">Recently Added</a></li>
+				</ul>
+				<div id="myTabContent" class="tab-content">
+					<div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
+						<div class="w3_agile_featured_movies">
+							<div class="col-md-2 w3l-movie-gride-agile">
+								<a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m15.jpg" title="album-name" class="img-responsive" alt=" " />
+									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+								</a>
+								<div class="mid-1 agileits_w3layouts_mid_1_home">
+									<div class="w3l-movie-text">
+										<h6><a href="single.html">God’s Compass</a></h6>							
+									</div>
+									<div class="mid-2 agile_mid_2_home">
+										<p>2016</p>
+										<div class="block-stars">
+											
+										</div>
+										<div class="clearfix"></div>
+									</div>
+								</div>
+								<div class="ribben">
+									<p>NEW</p>
+								</div>
+							</div>
+							<div class="col-md-2 w3l-movie-gride-agile">
+								<a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m2.jpg" title="album-name" class="img-responsive" alt=" "  />
+									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+								</a>
+								<div class="mid-1 agileits_w3layouts_mid_1_home">
+									<div class="w3l-movie-text">
+										<h6><a href="single.html">Bad Moms</a></h6>							
+									</div>
+									<div class="mid-2 agile_mid_2_home">
+										<p>2016</p>
+										<div class="block-stars">
+											
+										</div>
+										<div class="clearfix"></div>
+									</div>
+								</div>
+								<div class="ribben">
+									<p>NEW</p>
+								</div>
+							</div>
+							<div class="col-md-2 w3l-movie-gride-agile">
+								<a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m5.jpg" title="album-name" class="img-responsive" alt=" " />
+									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+								</a>
+								<div class="mid-1 agileits_w3layouts_mid_1_home">
+									<div class="w3l-movie-text">
+										<h6><a href="single.html">Jason Bourne</a></h6>							
+									</div>
+									<div class="mid-2 agile_mid_2_home">
+										<p>2016</p>
+										<div class="block-stars">
+											
+										</div>
+										<div class="clearfix"></div>
+									</div>
+								</div>
+								<div class="ribben">
+									<p>NEW</p>
+								</div>
+							</div>
+							<div class="col-md-2 w3l-movie-gride-agile">
+								<a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m16.jpg" title="album-name" class="img-responsive" alt=" " />
+									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+								</a>
+								<div class="mid-1 agileits_w3layouts_mid_1_home">
+									<div class="w3l-movie-text">
+										<h6><a href="single.html">Rezort</a></h6>							
+									</div>
+									<div class="mid-2 agile_mid_2_home">
+										<p>2016</p>
+										<div class="block-stars">
+											
+										</div>
+										<div class="clearfix"></div>
+									</div>
+								</div>
+								<div class="ribben">
+									<p>NEW</p>
+								</div>
+							</div>
+							<div class="col-md-2 w3l-movie-gride-agile">
+								<a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m17.jpg" title="album-name" class="img-responsive" alt=" " />
+									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+								</a>
+								<div class="mid-1 agileits_w3layouts_mid_1_home">
+									<div class="w3l-movie-text">
+										<h6><a href="single.html">Peter</a></h6>							
+									</div>
+									<div class="mid-2 agile_mid_2_home">
+										<p>2016</p>
+										<div class="block-stars">
+											
+										</div>
+										<div class="clearfix"></div>
+									</div>
+								</div>
+								<div class="ribben">
+									<p>NEW</p>
+								</div>
+							</div>
+							<div class="col-md-2 w3l-movie-gride-agile">
+								<a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m18.jpg" title="album-name" class="img-responsive" alt=" " />
+									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+								</a>
+								<div class="mid-1 agileits_w3layouts_mid_1_home">
+									<div class="w3l-movie-text">
+										<h6><a href="single.html">ISRA 88</a></h6>							
+									</div>
+									<div class="mid-2 agile_mid_2_home">
+										<p>2016</p>
+										<div class="block-stars">
+											
+										</div>
+										<div class="clearfix"></div>
+									</div>
+								</div>
+								<div class="ribben">
+									<p>NEW</p>
+								</div>
+							</div>
+							<div class="col-md-2 w3l-movie-gride-agile">
+								<a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m1.jpg" title="album-name" class="img-responsive" alt=" " />
+									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+								</a>
+								<div class="mid-1 agileits_w3layouts_mid_1_home">
+									<div class="w3l-movie-text">
+										<h6><a href="single.html">War Dogs</a></h6>							
+									</div>
+									<div class="mid-2 agile_mid_2_home">
+										<p>2016</p>
+										<div class="block-stars">
+																					</div>
+										<div class="clearfix"></div>
+									</div>
+								</div>
+								<div class="ribben">
+									<p>NEW</p>
+								</div>
+							</div>
+							<div class="col-md-2 w3l-movie-gride-agile">
+								<a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m14.jpg" title="album-name" class="img-responsive" alt=" " />
+									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+								</a>
+								<div class="mid-1 agileits_w3layouts_mid_1_home">
+									<div class="w3l-movie-text">
+										<h6><a href="single.html">The Other Side</a></h6>							
+									</div>
+									<div class="mid-2 agile_mid_2_home">
+										<p>2016</p>
+										<div class="block-stars">
+											
+										</div>
+										<div class="clearfix"></div>
+									</div>
+								</div>
+								<div class="ribben">
+									<p>NEW</p>
+								</div>
+							</div>
+							<div class="col-md-2 w3l-movie-gride-agile">
+								<a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m19.jpg" title="album-name" class="img-responsive" alt=" " />
+									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+								</a>
+								<div class="mid-1 agileits_w3layouts_mid_1_home">
+									<div class="w3l-movie-text">
+										<h6><a href="single.html">Civil War</a></h6>							
+									</div>
+									<div class="mid-2 agile_mid_2_home">
+										<p>2016</p>
+										<div class="block-stars">
+											
+										</div>
+										<div class="clearfix"></div>
+									</div>
+								</div>
+								<div class="ribben">
+									<p>NEW</p>
+								</div>
+							</div>
+							<div class="col-md-2 w3l-movie-gride-agile">
+								<a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m20.jpg" title="album-name" class="img-responsive" alt=" " />
+									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+								</a>
+								<div class="mid-1 agileits_w3layouts_mid_1_home">
+									<div class="w3l-movie-text">
+										<h6><a href="single.html">The Secret Life of Pets</a></h6>							
+									</div>
+									<div class="mid-2 agile_mid_2_home">
+										<p>2016</p>
+										<div class="block-stars">
+											
+										</div>
+										<div class="clearfix"></div>
+									</div>
+								</div>
+								<div class="ribben">
+									<p>NEW</p>
+								</div>
+							</div>
+							<div class="col-md-2 w3l-movie-gride-agile">
+								<a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m21.jpg" title="album-name" class="img-responsive" alt=" " />
+									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+								</a>
+								<div class="mid-1 agileits_w3layouts_mid_1_home">
+									<div class="w3l-movie-text">
+										<h6><a href="single.html">The Jungle Book</a></h6>							
+									</div>
+									<div class="mid-2 agile_mid_2_home">
+										<p>2016</p>
+										<div class="block-stars">
+											
+										</div>
+										<div class="clearfix"></div>
+									</div>
+								</div>
+								<div class="ribben">
+									<p>NEW</p>
+								</div>
+							</div>
+							<div class="col-md-2 w3l-movie-gride-agile">
+								<a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m22.jpg" title="album-name" class="img-responsive" alt=" " />
+									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+								</a>
+								<div class="mid-1 agileits_w3layouts_mid_1_home">
+									<div class="w3l-movie-text">
+										<h6><a href="single.html">Assassin's Creed 3</a></h6>							
+									</div>
+									<div class="mid-2 agile_mid_2_home">
+										<p>2016</p>
+										<div class="block-stars">
+											
+										</div>
+										<div class="clearfix"></div>
+									</div>
+								</div>
+								<div class="ribben">
+									<p>NEW</p>
+								</div>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+					</div>
+					<div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
+						<div class="col-md-2 w3l-movie-gride-agile">
+							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m22.jpg" title="album-name" class="img-responsive" alt=" " />
+								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+							</a>
+							<div class="mid-1 agileits_w3layouts_mid_1_home">
+								<div class="w3l-movie-text">
+									<h6><a href="single.html">Assassin's Creed 3</a></h6>							
+								</div>
+								<div class="mid-2 agile_mid_2_home">
+									<p>2016</p>
+									<div class="block-stars">
+										
+									</div>
+									<div class="clearfix"></div>
+								</div>
+							</div>
+							<div class="ribben">
+								<p>NEW</p>
+							</div>
+						</div>
+						<div class="col-md-2 w3l-movie-gride-agile">
+							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m2.jpg" title="album-name" class="img-responsive" alt=" " />
+								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+							</a>
+							<div class="mid-1 agileits_w3layouts_mid_1_home">
+								<div class="w3l-movie-text">
+									<h6><a href="single.html">Bad Moms</a></h6>							
+								</div>
+								<div class="mid-2 agile_mid_2_home">
+									<p>2016</p>
+									<div class="block-stars">
+										</div>
+									<div class="clearfix"></div>
+								</div>
+							</div>
+							<div class="ribben">
+								<p>NEW</p>
+							</div>
+						</div>
+						<div class="col-md-2 w3l-movie-gride-agile">
+							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m9.jpg" title="album-name" class="img-responsive" alt=" " />
+								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+							</a>
+							<div class="mid-1 agileits_w3layouts_mid_1_home">
+								<div class="w3l-movie-text">
+									<h6><a href="single.html">Central Intelligence</a></h6>							
+								</div>
+								<div class="mid-2 agile_mid_2_home">
+									<p>2016</p>
+									<div class="block-stars">
+										
+									</div>
+									<div class="clearfix"></div>
+								</div>
+							</div>
+							<div class="ribben">
+								<p>NEW</p>
+							</div>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div role="tabpanel" class="tab-pane fade" id="rating" aria-labelledby="rating-tab">
+						<div class="col-md-2 w3l-movie-gride-agile">
+							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m7.jpg" title="album-name" class="img-responsive" alt=" " />
+								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+							</a>
+							<div class="mid-1 agileits_w3layouts_mid_1_home">
+								<div class="w3l-movie-text">
+									<h6><a href="single.html">Light B/t Oceans</a></h6>							
+								</div>
+								<div class="mid-2 agile_mid_2_home">
+									<p>2016</p>
+									<div class="block-stars">
+										
+									</div>
+									<div class="clearfix"></div>
+								</div>
+							</div>
+							<div class="ribben">
+								<p>NEW</p>
+							</div>
+						</div>
+						<div class="col-md-2 w3l-movie-gride-agile">
+							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m11.jpg" title="album-name" class="img-responsive" alt=" " />
+								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+							</a>
+							<div class="mid-1 agileits_w3layouts_mid_1_home">
+								<div class="w3l-movie-text">
+									<h6><a href="single.html">X-Men</a></h6>							
+								</div>
+								<div class="mid-2 agile_mid_2_home">
+									<p>2016</p>
+									<div class="block-stars">
+										
+									</div>
+									<div class="clearfix"></div>
+								</div>
+							</div>
+							<div class="ribben">
+								<p>NEW</p>
+							</div>
+						</div>
+						<div class="col-md-2 w3l-movie-gride-agile">
+							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m8.jpg" title="album-name" class="img-responsive" alt=" " />
+								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+							</a>
+							<div class="mid-1 agileits_w3layouts_mid_1_home">
+								<div class="w3l-movie-text">
+									<h6><a href="single.html">The BFG</a></h6>							
+								</div>
+								<div class="mid-2 agile_mid_2_home">
+									<p>2016</p>
+									<div class="block-stars">
+										
+									</div>
+									<div class="clearfix"></div>
+								</div>
+							</div>
+							<div class="ribben">
+								<p>NEW</p>
+							</div>
+						</div>
+						<div class="col-md-2 w3l-movie-gride-agile">
+							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m17.jpg" title="album-name" class="img-responsive" alt=" " />
+								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+							</a>
+							<div class="mid-1 agileits_w3layouts_mid_1_home">
+								<div class="w3l-movie-text">
+									<h6><a href="single.html">Peter</a></h6>							
+								</div>
+								<div class="mid-2 agile_mid_2_home">
+									<p>2016</p>
+									<div class="block-stars">
+										
+									</div>
+									<div class="clearfix"></div>
+								</div>
+							</div>
+							<div class="ribben">
+								<p>NEW</p>
+							</div>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div role="tabpanel" class="tab-pane fade" id="imdb" aria-labelledby="imdb-tab">
+						<div class="col-md-2 w3l-movie-gride-agile">
+							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m22.jpg" title="album-name" class="img-responsive" alt=" " />
+								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+							</a>
+							<div class="mid-1 agileits_w3layouts_mid_1_home">
+								<div class="w3l-movie-text">
+									<h6><a href="single.html">Assassin's Creed 3</a></h6>							
+								</div>
+								<div class="mid-2 agile_mid_2_home">
+									<p>2016</p>
+									<div class="block-stars">
+										
+									</div>
+									<div class="clearfix"></div>
+								</div>
+							</div>
+							<div class="ribben">
+								<p>NEW</p>
+							</div>
+						</div>
+						<div class="col-md-2 w3l-movie-gride-agile">
+							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m2.jpg" title="album-name" class="img-responsive" alt=" " />
+								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+							</a>
+							<div class="mid-1 agileits_w3layouts_mid_1_home">
+								<div class="w3l-movie-text">
+									<h6><a href="single.html">Bad Moms</a></h6>							
+								</div>
+								<div class="mid-2 agile_mid_2_home">
+									<p>2016</p>
+									<div class="block-stars">
+									
+									</div>
+									<div class="clearfix"></div>
+								</div>
+							</div>
+							<div class="ribben">
+								<p>NEW</p>
+							</div>
+						</div>
+						<div class="col-md-2 w3l-movie-gride-agile">
+							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m9.jpg" title="album-name" class="img-responsive" alt=" " />
+								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+							</a>
+							<div class="mid-1 agileits_w3layouts_mid_1_home">
+								<div class="w3l-movie-text">
+									<h6><a href="single.html">Central Intelligence</a></h6>							
+								</div>
+								<div class="mid-2 agile_mid_2_home">
+									<p>2016</p>
+									<div class="block-stars">
+										
+									</div>
+									<div class="clearfix"></div>
+								</div>
+							</div>
+							<div class="ribben">
+								<p>NEW</p>
+							</div>
+						</div>
+						<div class="col-md-2 w3l-movie-gride-agile">
+							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m10.jpg" title="album-name" class="img-responsive" alt=" " />
+								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+							</a>
+							<div class="mid-1 agileits_w3layouts_mid_1_home">
+								<div class="w3l-movie-text">
+									<h6><a href="single.html">Don't Think Twice</a></h6>							
+								</div>
+								<div class="mid-2 agile_mid_2_home">
+									<p>2016</p>
+									<div class="block-stars">
+										
+									</div>
+									<div class="clearfix"></div>
+								</div>
+							</div>
+							<div class="ribben">
+								<p>NEW</p>
+							</div>
+						</div>
+						<div class="col-md-2 w3l-movie-gride-agile">
+							<a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m23.jpg" title="album-name" class="img-responsive" alt=" " />
+								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+							</a>
+							<div class="mid-1 agileits_w3layouts_mid_1_home">
+								<div class="w3l-movie-text">
+									<h6><a href="single.html">Dead Island 2</a></h6>							
+								</div>
+								<div class="mid-2 agile_mid_2_home">
+									<p>2016</p>
+									<div class="block-stars">
+									
+									</div>
+									<div class="clearfix"></div>
+								</div>
+							</div>
+							<div class="ribben">
+								<p>NEW</p>
+							</div>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- //general -->
+<!-- Latest-tv-series -->
+	
+	
+<!-- //Latest-tv-series -->
+<!-- footer -->
+	<div class="footer">
+		<div class="container">
+			<div class="w3ls_footer_grid">
+				<div class="col-md-6 w3ls_footer_grid_left">
+					<div class="w3ls_footer_grid_left1">
+						<h2>Subscribe to us</h2>
+						<div class="w3ls_footer_grid_left1_pos">
+							<form action="#" method="post">
+								<input type="email" name="email" placeholder="Your email..." required="">
+								<input type="submit" value="Send">
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 w3ls_footer_grid_right">
+					<a href="index.html"><h2>UGA<span>Movies</span></h2></a>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="col-md-5 w3ls_footer_grid1_left">
+				
+			</div>
+			
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+<!-- //footer -->
+<!-- Bootstrap Core JavaScript -->
+<script src="/assets/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+    $(".dropdown").hover(            
+        function() {
+            $('.dropdown-menu', this).stop( true, true ).slideDown("fast");
+            $(this).toggleClass('open');        
+        },
+        function() {
+            $('.dropdown-menu', this).stop( true, true ).slideUp("fast");
+            $(this).toggleClass('open');       
+        }
+    );
+});
+</script>
+<!-- //Bootstrap Core JavaScript -->
+<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			*/
+								
+			$().UItoTop({ easingType: 'easeOutQuart' });
+								
+			});
+	</script>
+<!-- //here ends scrolling icon -->

@@ -1,4 +1,9 @@
-<!--===============================================================================================-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Login V3</title>
+  <meta charset="UTF-8">
+  <!--===============================================================================================-->
   <link rel="stylesheet" type="text/css" href="/assets/bootstrap.css">
 <!--===============================================================================================-->
 
@@ -10,35 +15,56 @@
   <link rel="stylesheet" type="text/css" href="/assets/animsition.css">
 <!--===============================================================================================-->
   <link rel="stylesheet" type="text/css" href="/assets/select2.css">
+ <link rel="stylesheet" type="text/css" href="/assets/material-design-iconic-font.min.css">
+  <link rel="stylesheet" type="text/css" href="/assets/daterangepicker.css">
+<link rel="stylesheet" type="text/css" href="/assets/font-awesome.min.css">
 <!--===============================================================================================-->  
-
+<script src="/assets/main.js"></script>
 <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="css/util.css">
-  <link rel="stylesheet" type="text/css" href="css/main.css">
-<h2>Log in</h2>
+  <link rel="stylesheet" type="text/css" href="assets/util.css">
+  <link rel="stylesheet" type="text/css" href="assets/main.css">
+</head>
+<body>
 <div class="limiter">
     <div class="container-login100" style="background-image: url('/assets/bg-01.jpg');">
       <div class="wrap-login100">
-          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            <div class="field">
-              <%= f.label :email %><br />
-              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <!-- <span class="login100-form-logo"> -->
+             <img src="/assets/bg-01.jpg"> <!-- alt="Smiley face" height="42" width="42">  -->
+          <!-- </span> -->
+          <span class="login100-form-title p-b-34 p-t-27">
+            Log in
+          </span>
+
+
+          <span class="focus-input100" data-placeholder="&#xf207;"></span>
+
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name) ) do |f| %>
+            <div class="wrap-input100 validate-input" data validate = "Enter email">
+              <%= f.label :email, :class=> "input100 focus-input100", :name=>"email", :placeholder=>"Email", :type=>"text"%><br />
+              <div class="input100">
+              <%= f.email_field :email, :style=> 'height: 35px', :autofocus=> true, :autocomplete=> "email" %>
+            </div>
             </div>
 
-            <div class="field">
-              <%= f.label :password %><br />
-              <%= f.password_field :password, autocomplete: "current-password" %>
+            <div class=" wrap-input100 validate-input" data-validate="Enter password">
+              <%= f.label :password, :class=> "input100 focus-input100", :type=>"password", :name=>"pass" ,:placeholder=>"Password"%><br />
+              <div class="input100">
+              <%= f.password_field :password, :style=> 'height: 35px', :autocomplete=> "current-password" %>
+            </div>
             </div>
 
             <% if devise_mapping.rememberable? -%>
-              <div class="field">
-                <%= f.check_box :remember_me %>
-                <%= f.label :remember_me %>
+              <div class="field contact100-form-checkbox">
+                <%= f.label  :remember_me, :class=>"label-checkbox100", :for=>"ckb1"%>
+                <%= f.check_box :remember_me, :class=>"input-checkbox100", :id=>"ckb1", :type=>"checkbox", :name=>"remember-me" %>
+                
               </div>
             <% end -%>
 
-            <div class="actions">
-              <%= f.submit "Log in" %>
+            <div class="actions container-login100-form-btn">
+                          
+              <%= f.submit "Log in", :class=>"login100-form-btn" %>
+            
             </div>
           <% end %>
 
@@ -46,4 +72,7 @@
         </div>
       </div>
     </div>
+  </body>
+  </html>
+
 

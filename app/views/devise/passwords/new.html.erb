@@ -1,16 +1,40 @@
-<h2>Forgot your password?</h2>
-
+<script>
+  addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
+</script>
+<link rel="stylesheet" href="/assets/font-awesome.min2.css" />
+<link href="/assets/style.css" rel='stylesheet' type='text/css' media="all">
+<link href="/assets/fonts.googleapis.com/css?family=Barlow:300,400,500" rel="stylesheet">
+<script src="/assets/Signup.js"></script>
+<div style="background-image: url('/assets/bg-01.jpg');  background-size: cover; background-repeat: no-repeat; height:100%; " ;>
+<h1 class="header-w3ls">
+    Welcome</h1>
+    <div class="art-bothside" >
+      <div class="Up-sign-form text-center" >
+        <h2> RESET PASSWORD</h2>
+      </div>
+      <div class="mid-cls" >
+        
+            <div class="line-mid">
+            
+        </div>
+      </div>  
+    <div class="art-right-w3ls", style= "text-align:center">
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
+  <div class="field form-left-w3l">
+  	<p> Enter your email here to recieve password reset instructions</p> </div> </br> </br>
+  	
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+  <div class="actions actions btnn btnforget">
+    <%= f.submit  :value=>"Reset the Password", :class=> "clear " , "data-disable-with": 'Reset the Password'%>
   </div>
 <% end %>
+</div>
+</div>
 
 <%= render "devise/shared/links" %>
+ 

@@ -1,0 +1,348 @@
+<p id="notice"><%= notice %></p>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+<link href="/assets/show/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<!--// bootstrap-css -->
+<!-- css -->
+<link rel="stylesheet" href="/assets/show/style.css" type="text/css" media="all" />
+<!--// css -->
+<!-- font-awesome icons -->
+<link href="/assets/show/font-awesome.css" rel="stylesheet"> 
+<!-- //font-awesome icons -->
+<!-- portfolio -->  
+<link rel="stylesheet" href="/assets/show/chocolat.css" type="text/css" media="all">
+<!-- //portfolio -->  
+<!-- font -->
+<link href="//fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+<link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700italic,700,400italic,300italic,300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="/assets/util.css">
+  <link rel="stylesheet" type="text/css" href="/assets/main.css">
+    <link rel="icon" type="image/png" href="/assets/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="assets/table/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/assets/font-awesome.min.css">
+
+  <link rel="stylesheet" type="text/css" href="/assets/animate.css">
+<script src="/assets/jquery-1.11.1.min.js"></script>
+<script src="/assets/bootstrap.js"></script>
+<script type="text/javascript">
+  jQuery(document).ready(function($) {
+    $(".scroll").click(function(event){   
+      event.preventDefault();
+      $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+    });
+  });
+</script> 
+
+<h1>Shows</h1>
+<div class="banner">
+    <div class="agileinfo-dot">
+      
+      <div class="header-top">
+        <div class="container">
+          <div class="header-top-info">
+            <nav class="navbar navbar-default">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+              </div>
+
+              <!-- Collect the nav links, forms, and other content for toggling -->
+            
+              <!-- /.navbar-collapse -->
+            </nav>
+          </div>
+        </div>
+      </div>
+      <div class="w3layouts-banner-info">
+        <div class="container">
+          <div class="w3layouts-banner-slider">
+            <div class="w3layouts-banner-top-slider">
+              <div class="slider">
+                <div class="callbacks_container">
+                  <ul class="rslides callbacks callbacks1" id="slider4">
+                    <li>
+                      <div class="banner_text">
+                        <h3><%= @shows.first.movie_list.name %></h3>
+                        <p>Do not be afraid just believe</p>
+                        
+                      </div>
+                    </li>
+                    
+                  </ul>
+                </div>
+                <div class="clearfix"> </div>
+                <script src="/assets/responsiveslides.min.js"></script>
+                <script>
+                  // You can also use "$(window).load(function() {"
+                  $(function () {
+                    // Slideshow 4
+                    $("#slider4").responsiveSlides({
+                    auto: true,
+                    pager:true,
+                    nav:true,
+                    speed: 500,
+                    namespace: "callbacks",
+                    before: function () {
+                      $('.events').append("<li>before event fired.</li>");
+                    },
+                    after: function () {
+                      $('.events').append("<li>after event fired.</li>");
+                    }
+                    });
+                
+                  });
+                 </script>
+                <!--banner Slider starts Here-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- //banner -->
+  <!-- about -->
+  <div class="about" id="about"> 
+    <div class="container"> 
+      
+    
+        </div> 
+        <div class="clearfix"> </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal about-modal fade" id="myModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header"> 
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>            
+          <h4 class="modal-title">Games <span>Hub</span></h4>
+        </div> 
+        <div class="modal-body">
+          <div class="agileits-w3layouts-info">
+            <img src="/assets/11.jpg" alt="" />
+            <p>Duis venenatis, turpis eu bibendum porttitor, sapien quam ultricies tellus, ac rhoncus risus odio eget nunc. Pellentesque ac fermentum diam. Integer eu facilisis nunc, a iaculis felis. Pellentesque pellentesque tempor enim, in dapibus turpis porttitor quis. Suspendisse ultrices hendrerit massa. Nam id metus id tellus ultrices ullamcorper.  Cras tempor massa luctus, varius lacus sit amet, blandit lorem. Duis auctor in tortor sed tristique. Proin sed finibus sem</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- //modal -->
+  <!-- testimonial -->
+  <div class="jarallax testimonial" id="testimonial">
+    <div class="testimonial-dot">
+      <div class="container">
+        <div class="agileits-title testimonial-heading"> 
+          <h3>Reviews</h3> 
+        </div>
+        <div class="w3-agile-testimonial">
+          <div class="slider">
+            <div class="callbacks_container">
+              <ul class="rslides callbacks callbacks1" id="slider3">
+                <li>
+                  <div class="testimonial-img-grid">
+                    <div class="testimonial-img t-img1">
+                      <img src="/assets/ts1.jpg" alt="" />
+                    </div>
+                    <div class="testimonial-img">
+                      <img src="/assets/ts2.jpg" alt="" />
+                    </div>
+                    <div class="testimonial-img t-/assets>
+                    <img src="/assets/ts3.jpg" alt="" />
+                    </div>
+                    <div class="clearfix"> </div>
+                  </div>
+                  <div class="testimonial-img-info">
+                    <p>Lyra surpasses the timid drone of Pan's Labyrinth or the Pevensies' do-gooder sap, she's brave, smart, and the best liar in the universe.</p>
+                    <h5>Peter Guptill</h5>
+                    <h6>Proin blandit</h6>
+                  </div>
+                </li>
+                <li>
+                  <div class="testimonial-img-grid">
+                    <div class="testimonial-img t-img1">
+                      <img src="/assets/ts2.jpg" alt="" />
+                    </div>
+                    <div class="testimonial-img">
+                      <img src="/assets/ts3.jpg" alt="" />
+                    </div>
+                    <div class="testimonial-img t-img2">
+                      <img src="/assets/ts1.jpg" alt="" />
+                    </div>
+                    <div class="clearfix"> </div>
+                  </div>
+                  <div class="testimonial-img-info">
+                    <p>The Catholic League thinks it's anti-Catholic. Admirers of Philip Pullman's 1995 His Dark Materials trilogy think the film guts the backbone of the book. Me, I just think it blows.</p>
+                    <h5>Mary Jane</h5>
+                    <h6>Lorem ipsum</h6>
+                  </div>
+                </li>
+                <li>
+                  <div class="testimonial-img-grid">
+                    <div class="testimonial-img t-img1">
+                      <img src="/assets/ts3.jpg" alt="" />
+                    </div>
+                    <div class="testimonial-img">
+                      <img src="/assets/ts1.jpg" alt="" />
+                    </div>
+                    <div class="testimonial-img t-img2">
+                      <img src="/assets/ts2.jpg" alt="" />
+                    </div>
+                    <div class="clearfix"> </div>
+                  </div>
+                  <div class="testimonial-img-info">
+                    <p>Some of the material is wildly imaginative, some of it is just kinda silly. But it all looks good, and the kids are likable, [and] Kidman makes for an intriguing villain</p>
+                    <h5>Steven Wilson</h5>
+                    <h6>Proin blandit</h6>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="clearfix"> </div>
+            <script>
+                  // You can also use "$(window).load(function() {"
+                  $(function () {
+                    // Slideshow 4
+                    $("#slider3").responsiveSlides({
+                    auto: true,
+                    pager:false,
+                    nav:false,
+                    speed: 500,
+                    namespace: "callbacks",
+                    before: function () {
+                      $('.events').append("<li>before event fired.</li>");
+                    },
+                    after: function () {
+                      $('.events').append("<li>after event fired.</li>");
+                    }
+                    });
+                
+                  });
+            </script>
+            <!--banner Slider starts Here-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- //testimonial -->
+  <!-- team -->
+  <div class="team" id="team">
+    <div class="container">
+      <div class="agileits-title"> 
+        <h3>Cast</h3> 
+      </div>
+      <div class="agileits-team-grids">
+        <div class="col-md-3 agileits-team-grid">
+          <div class="team-info">
+            <img src="/assets/t1.jpg" alt="">
+            <div class="team-caption"> 
+              <h4>Peter Parker</h4>
+              <p>Fusce laoreet</p>
+              <ul>
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-rss"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 agileits-team-grid">
+          <div class="team-info">
+            <img src="/assets/t2.jpg" alt="">
+            <div class="team-caption"> 
+              <h4>Johan Botha</h4>
+              <p>Fusce laoreet</p>
+              <ul>
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-rss"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 agileits-team-grid">
+          <div class="team-info">
+            <img src="/assets/t3.jpg" alt="">
+            <div class="team-caption"> 
+              <h4>Justo Congue</h4>
+              <p>Fusce laoreet</p>
+              <ul>
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-rss"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 agileits-team-grid">
+          <div class="team-info">
+            <img src="/assets/t4.jpg" alt="">
+            <div class="team-caption"> 
+              <h4>Steven Wilson</h4>
+              <p>Fusce laoreet</p>
+              <ul>
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-rss"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+    </div>
+  </div>
+  <!-- //team -->
+  <!-- blog -->
+  <div class="limiter">
+    <div class="container-table100">
+      <div class="wrap-table100">
+        <div class="table100">
+<table>
+  <thead>
+    <tr class="table100-head">
+      <th class="column1">Show Time</th>
+                <th class="column2">Show Hall</th>
+                <th class="column3">Movie Name</th>
+                <th class="column4">Price</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+<tbody>
+    <% @shows.each do |show| %>
+      <tr>
+          <td class="column1"><%= show.show_time %></td>
+                  <td class="column2"><%= show.show_hall %></td>
+                  <td class="column3"><%= show.movie_list.name %></td>
+                  <td class="column4"><%= show.movie_list.price %></td>
+                  <td class="column5"><%= link_to 'Seat Selection', show %></td>
+        <td><%#= link_to 'Edit', edit_show_path(show) %></td>
+        <td><%#= link_to 'Destroy', show, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+        <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+  <script src="vendor/bootstrap/js/popper.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+  <script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+  <script src="js/main.js"></script>
+    <% end %>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<%#= link_to 'New Show', new_show_path %>
+

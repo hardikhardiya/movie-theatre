@@ -1,25 +1,49 @@
-<h2>Change your password</h2>
+<script>
+  addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
+</script>
+<link rel="stylesheet" href="/assets/font-awesome.min2.css" />
+<link href="/assets/style.css" rel='stylesheet' type='text/css' media="all">
+<link href="/assets/fonts.googleapis.com/css?family=Barlow:300,400,500" rel="stylesheet">
+<script src="/assets/Signup.js"></script>
+<div style="background-image: url('/assets/bg-01.jpg');  background-size: cover; background-repeat: no-repeat; height:100%; " ;>
+<h1 class="header-w3ls">
+    Welcome</h1>
+    <div class="art-bothside" >
+      <div class="Up-sign-form text-center" >
+        <h2> Change Password</h2>
+      </div>
+      <div class="mid-cls" >
+        
+            <div class="line-mid">
+            
+        </div>
+      </div>  
+    <div class="art-right-w3ls", style= "text-align:center">
+      <h2>Change your password</h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
   <%= f.hidden_field :reset_password_token %>
 
-  <div class="field">
+  <div class="field field form-right-w3ls">
     <%= f.label :password, "New password" %><br />
     <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em><br />
     <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+    <%= f.password_field :password, autofocus: true, :style=> 'height: 35px', autocomplete: "new-password" %>
   </div>
 
-  <div class="field">
+  <div class="field form-right-w3ls">
     <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.password_field :password_confirmation, :style=> 'height: 35px', autocomplete: "off" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Change my password" %>
+  <div class="actions  btnn">
+    <%= f.submit "Change my password" , :class=> "clear"%>
   </div>
-<% end %>
+<% end %></br> </br>
 
 <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>

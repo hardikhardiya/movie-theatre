@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  movie_id: 1
+  hall: 
+  seats: MyString
+  movie_time: 2018-11-18 23:52:09
+
+two:
+  movie_id: 1
+  hall: 
+  seats: MyString
+  movie_time: 2018-11-18 23:52:09
