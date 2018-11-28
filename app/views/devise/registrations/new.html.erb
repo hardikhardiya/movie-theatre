@@ -18,12 +18,12 @@
             
         </div>
       </div>  
-    <div class="art-right-w3ls", style= "text-align:center">
+    <div class="art-right-w3ls", style= "text-align:left">
         
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
         <div class="field form-left-w3l">
-          <%= f.label :fname %><br />
+          <%= f.label "First Name" %><br />
           <%= f.text_field :fname, autofocus: true, autocomplete: "First name" %>
         </div>
 
@@ -36,6 +36,7 @@
           <%= f.label :age %><br />
           <%= f.number_field :age, autofocus: true, autocomplete: "Age" %>
         </div>
+        
         <div class="field form-left-w3l">
           <%= f.label :email, :class=> "clear", :name=>"email", :placeholder=>"Email", :type=>"text" %><br />
           <%= f.email_field :email,  :style=> 'height: 35px', :autofocus=> "true", :autocomplete=> "email" %>

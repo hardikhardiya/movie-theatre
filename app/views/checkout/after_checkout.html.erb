@@ -1,1 +1,20 @@
-<h1>Good Job!</h1>
+
+
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+
+<p style="font-size:25px;"><b>Order Summary</b></p>
+<div style="border:1px solid black">
+  <p style="font-size:15px;"><b>Movie Title: </b><a href="url"><%=@movie %></a></p>
+  <p style="font-size:15px"><b>Hall Location: </b><%= params[:show_hall]%></p>
+  <p style="font-size:15px"><b>Time: </b><%=params[:show_time]%></p>
+</div>
+
+<br>
+<p style="font-size:25px; color:red;"><b>Order Successful</b></p>
+<div style="border:1px solid black">
+        <p style="font-size:40px;"><b>Thank you for your order</b></p>
+  <p style="font-size:15px"><b>Order Number: <%= @order.id%> </b></p>
+  <p style="font-size:15px">You will receive a confirmation email at usermail@mail.com</p>
+  </style>
+</div>
+</div>

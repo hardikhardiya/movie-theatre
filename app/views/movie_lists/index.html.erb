@@ -1,53 +1,95 @@
 <p id="notice"><%= notice %></p>
+<div style="background-image: url('/assets/check-banner.jpg');  background-size: cover; background-repeat: no-repeat; height:relative; " ;>
+  <style>
+  h1,h2 {
+    color: white;
+    text-align: center;
+}</style>
 
-<h1>Movie Lists</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Price</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    
-      <tr>
-        <td></td>
-        <td><%#= movie_list.price %></td>
-        <td><%#= link_to 'Shows', shows_path %></td>
-        <td><%#= link_to 'Edit', edit_movie_list_path(movie_list) %></td>
-        <td><%#= link_to 'Destroy', movie_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Movie List', new_movie_list_path %>
+<h1>Now Playing</h1>
 
 <div class="general">
+
     <div class="container">
+      
           <% @movie_lists.each do |movie_list| %>
 
-            <div class="w3_agile_featured_movies">
+
+            <div style="text-align:relative">
               <div class="col-md-2 w3l-movie-gride-agile">
-                <a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m15.jpg" title="album-name" class="img-responsive" alt=" " />
-                  <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-                </a>
-                <div class="mid-1 agileits_w3layouts_mid_1_home">
-                  <div class="w3l-movie-text">
-                    <h6><%= link_to movie_list.name, shows_path(:movie=>movie_list) %></h6>              
-                  </div>
+                               <!--  <a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m15.jpg" title="album-name" class="img-responsive" alt=" " />
+                  
+                </a> -->
+                
+                           
                 </div>
+                  <div class="col-md-2 w3l-movie-gride-agile">
+                <!-- <a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m2.jpg" title="album-name" class="img-responsive" alt=" "  /> -->
+                  <%= image_tag(movie_list.image) if movie_list.image? %>
+                  <h6><%= link_to movie_list.name, shows_path(:movie=>movie_list) %></h6>   
+                
+             <!--    </a> -->
+    </div>
+
                 <!-- <div class="ribben">
                   <p>NEW</p>
                 </div> -->
+            
+ <%end%>
+              
+         
+
+         </div>
+
+       
+        </div>
+
+      </div>
+     
+      <div class="general">
+
+    <div class="container">
+          
+    <h1>COMING SOON</h1>
+
+<div class="col-md-2 w3l-movie-gride-agile">
+                                <a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m15.jpg" title="album-name" class="img-responsive" alt=" " />
+                  
+                </a>
+                
+                          
+                  </div>
+                 
+                     <div class="col-md-2 w3l-movie-gride-agile">
+                <a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m2.jpg" title="album-name" class="img-responsive" alt=" "  />
+                
+                </a>
+       
               </div>
+              <div class="col-md-2 w3l-movie-gride-agile">
+                <a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m5.jpg" title="album-name" class="img-responsive" alt=" " />
+                  </a>
+                   
+                   </div>
+                   <div class="col-md-2 w3l-movie-gride-agile">
+                <a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m16.jpg" title="album-name" class="img-responsive" alt=" " />
+                </a>
               </div>
-            </div>
-          <% end %>  
-    </div>
-  </div>
+                <div class="col-md-2 w3l-movie-gride-agile">
+                <a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m17.jpg" title="album-name" class="img-responsive" alt=" " />
+                </a>
+              </div>
+              <div class="col-md-2 w3l-movie-gride-agile">
+                <a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m18.jpg" title="album-name" class="img-responsive" alt=" " />
+                </a>
+              </div>
+              
+                 </div>
+</div>
+</div>
+
+
+
+
+    

@@ -12,6 +12,7 @@ gem 'rails', '~> 5.1.5'
 gem 'pg'
 gem 'devise'
 gem 'activeadmin'
+gem 'carrierwave'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets

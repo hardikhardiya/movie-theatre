@@ -1,14 +1,7 @@
-/*
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
-*/
 
-/*--reset--*/
 
 html,
-body,
+body
 div,
 span,
 applet,
@@ -145,6 +138,7 @@ td {
     color: #fff;
 }
 
+
 /*--start editing from here--*/
 
 a {
@@ -248,7 +242,10 @@ body a:hover {
 }
 
 /* content */
-
+html{
+     background-image:url('/assets/seats.jpg');
+     background-size: relative;
+}
 body {
     
     -webkit-background-size: cover;
@@ -257,10 +254,11 @@ body {
     -ms-background-size: cover;
     background-attachment: fixed;
     font-family: 'Source Sans Pro', sans-serif;
+
 }
 
 .mr_agilemain span {
-    color: #f00;
+   /* color: #f00;*/
 }
 
 .w3ls-reg {
@@ -315,11 +313,16 @@ h2 {
     display: flex;
     justify-content: space-between;
     width: 100%;
+
 }
 
 .agileits-left {
     flex-basis: 60%;
     margin-bottom: 1.5em;
+    visibility: visible;
+    text-align: :left;
+
+
 }
 
 li.smallBox {
@@ -332,6 +335,8 @@ li.smallBox {
 .agileits-right {
     flex-basis: 40%;
     margin-bottom: 1.5em;
+    visibility: visible;
+    text-align: right;
 }
 
 .tw {
@@ -344,7 +349,21 @@ label {
     font-weight: 600;
 }
 
-input[type="text"],
+
+input[type="text"]{
+     padding: 1em;
+    width: 80%;
+    background: transparent;
+    border: 1px solid #888686;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1em;
+    margin-top: 10px;
+    color: black;
+
+    display:inline;
+    margin:1px 20px 1px 1px;
+   
+    }
 input[type="number"] {
     padding: 1em;
     width: 80%;
@@ -352,8 +371,13 @@ input[type="number"] {
     border: 1px solid #888686;
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 1em;
-    margin-top: 10px;
-    color: #fff;
+    
+    color: black;
+    visibility: visible;
+    display:inline;
+    margin:1px 20px 1px 1px;
+   
+
 }
 
 button {
@@ -615,6 +639,9 @@ input[type=checkbox]:checked:before {
     .copy-wthree p {
         padding: 0 0.5em;
     }
+}
+.seat_user {
+   color: #000;
 }
 
 /*--//responsive--*/

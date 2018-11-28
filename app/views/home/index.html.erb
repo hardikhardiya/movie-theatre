@@ -63,7 +63,7 @@
 			</div>
 			<div class="w3l_sign_in_register">
 				<ul>
-					<li><i class="fa fa-phone" aria-hidden="true"></i> (+1)706 308 8062</li>
+					<li> (+1)706 308 8062</li>
 					<% if user_signed_in? %>
 								<li> Logged in as <strong><%= current_user.email %></strong>.</li>
 								
@@ -107,72 +107,12 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
 					<nav>
-						<ul class="nav navbar-nav">
+						<ul class="nav navbar-nav" style="list-style: none">
 							<li class="active"><%= link_to "Home", root_path%></li>
-							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Genres <b class="caret"></b></a>
-								<ul class="dropdown-menu multi-column columns-3">
-									<li>
-									<div class="col-sm-4">
-										<ul class="multi-column-dropdown">
-											<li><a href="genres.html">Action</a></li>
-											
-											
-											<li><a href="horror.html">Horror</a></li>
-											<li><a href="genres.html">Romance</a></li>
-											<li><a href="genres.html">Sports</a></li>
-											
-										</ul>
-									</div>
-									<div class="col-sm-4">
-										<ul class="multi-column-dropdown">
-											<li><a href="genres.html">Adventure</a></li>
-											<li><a href="comedy.html">Comedy</a></li>
-											
-											<li><a href="genres.html">Fantasy</a></li>
-											<li><a href="genres.html">Thriller</a></li>
-										</ul>
-									</div>
-									<div class="clearfix"></div>
-									</li>
-								</ul>
-							</li>
 							<li>
                                <%= link_to "Book Tickets", movie_lists_path%>
 							</li>
-							<li><a href="news.html">News</a></li>
-							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Region <b class="caret"></b></a>
-								<ul class="dropdown-menu multi-column columns-3">
-									<li>
-										<div class="col-sm-4">
-											<ul class="multi-column-dropdown">
-												<li><a href="genres.html">Atlanta</a></li>
-												<li><a href="genres.html">Augusta</a></li>
-												<li><a href="genres.html">Athens</a></li>
-												<li><a href="genres.html">Alps</a></li>
-											</ul>
-										</div>
-										<div class="col-sm-4">
-											<ul class="multi-column-dropdown">
-												<li><a href="genres.html">San Jose</a></li>
-												<li><a href="genres.html">Los Angeles</a></li>
-												<li><a href="genres.html">New York</a></li>
-												<li><a href="genres.html">New Jersey</a></li>
-											</ul>
-										</div>
-										<div class="col-sm-4">
-											<ul class="multi-column-dropdown">
-												<li><a href="genres.html">Seattle</a></li>
-												<li><a href="genres.html">Texas</a></li>
-												<li><a href="genres.html">Chicago</a></li>
-												<li><a href="genres.html">Miami</a></li>
-											</ul>
-										</div>
-										<div class="clearfix"></div>
-									</li>
-								</ul>
-							</li>
+							<li><%= link_to "News", bulletin_path, method: :get%></li>
 							
 							<li>  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
 							
@@ -216,12 +156,10 @@
 			});
 			$(".slidey-list-description").dotdotdot();
 		</script>
-<!-- //banner -->
-<!-
-<!-- //banner-bottom -->
 
-  </nav>
-</div>
+<!-- //banner -->
+
+
 <!-- general -->
 	<div class="general">
 		<h4 class="latest-text w3_latest_text">Featured Movies</h4>
@@ -732,6 +670,7 @@
 	</div>
 <!-- //general -->
 <!-- Latest-tv-series -->
+
 	
 	
 <!-- //Latest-tv-series -->

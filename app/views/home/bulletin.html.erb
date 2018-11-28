@@ -1,0 +1,839 @@
+<link href="/assets/home/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/assets/home/style.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="/assets/home/contactstyle.css" type="text/css" media="all" />
+<link rel="stylesheet" href="/assets/home/faqstyle.css" type="text/css" media="all" />
+<link href="/assets/home/single.css" rel='stylesheet' type='text/css' />
+<link href="/assets/home/medile.css" rel='stylesheet' type='text/css' />
+<!-- banner-slider -->
+<link href="/assets/home/jquery.slidey.min.css" rel="stylesheet">
+<!-- //banner-slider -->
+<!-- pop-up -->
+<link href="/assets/home/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+<!-- //pop-up -->
+<!-- font-awesome icons -->
+<link rel="stylesheet" href="/assets/home/news.css" type="text/css" media="all" />
+<link rel="stylesheet" href="/assets/home/font-awesome.min.css" />
+<!-- //font-awesome icons -->
+<!-- js -->
+<script type="text/javascript" src="/assets/jquery-2.1.4.min.js"></script>
+<!-- //js -->
+<!-- banner-bottom-plugin -->
+<link href="/assets/home/owl.carousel.css" rel="stylesheet" type="text/css" media="all">
+<script src="/assets/owl.carousel.js"></script>
+<script>
+	$(document).ready(function() { 
+		$("#owl-demo").owlCarousel({
+	 
+		  autoPlay: 3000, //Set AutoPlay to 3 seconds
+	 
+		  items : 5,
+		  itemsDesktop : [640,4],
+		  itemsDesktopSmall : [414,3]
+	 
+		});
+	 
+	}); 
+</script> 
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" src="/assets/move-top.js"></script>
+<script type="text/javascript" src="/assets/easing.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+<!-- start-smoth-scrolling -->
+
+	
+
+<!-- header -->
+	<div class="header">
+		<div class="container">
+			<div class="w3layouts_logo">
+				<a href="index.html"><h1>UGA<span>Movies</span></h1></a>
+			</div>
+			<div class="w3_search">
+				<%= form_tag movie_lists_path, method: :get do%>	
+				    <%= text_field_tag 'search', "", :placeholder=>"Search" %>
+					<%= submit_tag "Go" %>
+				<% end %>
+			</div>
+			<div class="w3l_sign_in_register">
+				<ul>
+					<li> (+1)706 308 8062</li>
+					<% if user_signed_in? %>
+								<li> Logged in as <strong><%= current_user.email %></strong>.</li>
+								
+								
+
+					
+				</ul>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+<!-- //header -->
+<!-- bootstrap-pop-up -->
+	
+	<script>
+		$('.toggle').click(function(){
+		  // Switches the Icon
+		  $(this).children('i').toggleClass('fa-pencil');
+		  // Switches the forms  
+		  $('.form').animate({
+			height: "toggle",
+			'padding-top': 'toggle',
+			'padding-bottom': 'toggle',
+			opacity: "toggle"
+		  }, "slow");
+		});
+	</script>
+<!-- //bootstrap-pop-up -->
+<!-- nav -->
+	<div class="movies_nav">
+		<div class="container">
+			<nav class="navbar navbar-default">
+				<div class="navbar-header navbar-left">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+					<nav>
+						<ul class="nav navbar-nav" style="list-style: none">
+							<li class="active"><%= link_to "Home", root_path%></li>
+							<li>
+                               <%= link_to "Book Tickets", movie_lists_path%>
+							</li>
+							<li><%= link_to "News", bulletin_path, method: :get%></li>
+							
+							<li>  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
+							
+							<li>  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+								</li>
+
+		 
+							<% else %>
+							  	<li>
+								  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></li>
+								<li>  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
+								<!-- <li>  <%#= link_to "Admin", admin_user_session_path, :class => 'navbar-link'  %>
+								</li>  --> 
+							<% end %>
+						</ul>
+					</nav>
+				</div>
+			</nav>	
+		</div>
+	</div>
+	<div class="faq">
+			<div class="container">
+				<div class="agileits-news-top">
+					<ol class="breadcrumb">
+					  <li><a href="index.html">Home</a></li>
+					  <li class="active">News</li>
+					</ol>
+				</div>
+				<div class="agileinfo-news-top-grids">
+					<div class="col-md-8 wthree-top-news-left">
+						<div class="wthree-news-left">
+							
+								<div id="myTabContent" class="tab-content">
+									<div role="tabpanel" class="tab-pane fade in active" id="home1" aria-labelledby="home1-tab">
+										<div class="wthree-news-top-left">
+											<div class="col-md-6 w3-agileits-news-left">
+												<div class="col-sm-5 wthree-news-img">
+													<a href="news-single.html"><img src="assets/m1.jpg" alt="" /></a>
+												</div>
+												<div class="col-sm-7 wthree-news-info">
+													<h5><a href="news-single.html">Salman Khan also roped in to Race 3 starring John.</a></h5>
+													<p>John Abraham is reportedly signed for the movie Race3. The film appears to be a superhit with housefull shows all over the country.</p>
+													<ul>
+														<li><i class="fa fa-clock-o" aria-hidden="true"></i> 24/09/2016</li>
+														<li><i class="fa fa-eye" aria-hidden="true"></i> 2642</li>
+													</ul>
+												</div>
+												<div class="clearfix"> </div>
+											</div>
+											<div class="col-md-6 w3-agileits-news-left">
+												<div class="col-sm-5 wthree-news-img">
+													<a href="news-single.html"><img src="assets/m2.jpg" alt="" /></a>
+												</div>
+												<div class="col-sm-7 wthree-news-info">
+													<h5><a href="news-single.html">Salman Khan also roped in to Race 3 starring John.</a></h5>
+													<p>John Abraham is reportedly signed for the movie Race3. The film appears to be a superhit with housefull shows all over the country.</p>
+													<ul>
+														<li><i class="fa fa-clock-o" aria-hidden="true"></i> 24/09/2016</li>
+														<li><i class="fa fa-eye" aria-hidden="true"></i> 2642</li>
+													</ul>
+												</div>
+												<div class="clearfix"> </div>
+											</div>
+											<div class="clearfix"> </div>
+										</div>
+										<div class="wthree-news-top-left">
+											<div class="col-md-6 w3-agileits-news-left">
+												<div class="col-sm-5 wthree-news-img">
+													<a href="news-single.html"><img src="assets/m3.jpg" alt="" /></a>
+												</div>
+												<div class="col-sm-7 wthree-news-info">
+													<h5><a href="news-single.html">Salman Khan also roped in to Race 3 starring John.</a></h5>
+													<p>John Abraham is reportedly signed for the movie Race3. The film appears to be a superhit with housefull shows all over the country.</p>
+													<ul>
+														<li><i class="fa fa-clock-o" aria-hidden="true"></i> 24/09/2016</li>
+														<li><i class="fa fa-eye" aria-hidden="true"></i> 2642</li>
+													</ul>
+												</div>
+												<div class="clearfix"> </div>
+											</div>
+											<div class="col-md-6 w3-agileits-news-left">
+												<div class="col-sm-5 wthree-news-img">
+													<a href="news-single.html"><img src="assets/m4.jpg" alt="" /></a>
+												</div>
+												<div class="col-sm-7 wthree-news-info">
+													<h5><a href="news-single.html">Salman Khan also roped in to Race 3 starring John.</a></h5>
+													<p>John Abraham is reportedly signed for the movie Race3. The film appears to be a superhit with housefull shows all over the country.</p>
+													<ul>
+														<li><i class="fa fa-clock-o" aria-hidden="true"></i> 24/09/2016</li>
+														<li><i class="fa fa-eye" aria-hidden="true"></i> 2642</li>
+													</ul>
+												</div>
+												<div class="clearfix"> </div>
+											</div>
+											<div class="clearfix"> </div>
+										</div>
+										<div class="wthree-news-top-left">
+											<div class="col-md-6 w3-agileits-news-left">
+												<div class="col-sm-5 wthree-news-img">
+													<a href="news-single.html"><img src="assets/m5.jpg" alt="" /></a>
+												</div>
+												<div class="col-sm-7 wthree-news-info">
+													<h5><a href="news-single.html">Salman Khan also roped in to Race 3 starring John.</a></h5>
+													<p>John Abraham is reportedly signed for the movie Race3. The film appears to be a superhit with housefull shows all over the country.</p>
+													<ul>
+														<li><i class="fa fa-clock-o" aria-hidden="true"></i> 24/09/2016</li>
+														<li><i class="fa fa-eye" aria-hidden="true"></i> 2642</li>
+													</ul>
+												</div>
+												<div class="clearfix"> </div>
+											</div>
+											<div class="col-md-6 w3-agileits-news-left">
+												<div class="col-sm-5 wthree-news-img">
+													<a href="news-single.html"><img src="assets/m6.jpg" alt="" /></a>
+												</div>
+												<div class="col-sm-7 wthree-news-info">
+													<h5><a href="news-single.html">Salman Khan also roped in to Race 3 starring John.</a></h5>
+													<p>John Abraham is reportedly signed for the movie Race3. The film appears to be a superhit with housefull shows all over the country.</p>
+													<ul>
+														<li><i class="fa fa-clock-o" aria-hidden="true"></i> 24/09/2016</li>
+														<li><i class="fa fa-eye" aria-hidden="true"></i> 2642</li>
+													</ul>
+												</div>
+												<div class="clearfix"> </div>
+											</div>
+											<div class="clearfix"> </div>
+										</div>
+										<div class="wthree-news-top-left">
+											<div class="col-md-6 w3-agileits-news-left">
+												<div class="col-sm-5 wthree-news-img">
+													<a href="news-single.html"><img src="assets/m7.jpg" alt="" /></a>
+												</div>
+												<div class="col-sm-7 wthree-news-info">
+													<h5><a href="news-single.html">Salman Khan also roped in to Race 3 starring John.</a></h5>
+													<p>John Abraham is reportedly signed for the movie Race3. The film appears to be a superhit with housefull shows all over the country.</p>
+													<ul>
+														<li><i class="fa fa-clock-o" aria-hidden="true"></i> 24/09/2016</li>
+														<li><i class="fa fa-eye" aria-hidden="true"></i> 2642</li>
+													</ul>
+												</div>
+												<div class="clearfix"> </div>
+											</div>
+											<div class="col-md-6 w3-agileits-news-left">
+												<div class="col-sm-5 wthree-news-img">
+													<a href="news-single.html"><img src="assets/m8.jpg" alt="" /></a>
+												</div>
+												<div class="col-sm-7 wthree-news-info">
+													<h5><a href="news-single.html">Salman Khan also roped in to Race 3 starring John.</a></h5>
+													<p>John Abraham is reportedly signed for the movie Race3. The film appears to be a superhit with housefull shows all over the country.</p>
+													<ul>
+														<li><i class="fa fa-clock-o" aria-hidden="true"></i> 24/09/2016</li>
+														<li><i class="fa fa-eye" aria-hidden="true"></i> 2642</li>
+													</ul>
+												</div>
+												<div class="clearfix"> </div>
+											</div>
+											<div class="clearfix"> </div>
+										</div>
+										<div class="wthree-news-top-left">
+											<div class="col-md-6 w3-agileits-news-left">
+												<div class="col-sm-5 wthree-news-img">
+													<a href="news-single.html"><img src="assets/m9.jpg" alt="" /></a>
+												</div>
+												<div class="col-sm-7 wthree-news-info">
+													<h5><a href="news-single.html">Salman Khan also roped in to Race 3 starring John.</a></h5>
+													<p>John Abraham is reportedly signed for the movie Race3. The film appears to be a superhit with housefull shows all over the country.</p>
+													<ul>
+														<li><i class="fa fa-clock-o" aria-hidden="true"></i> 24/09/2016</li>
+														<li><i class="fa fa-eye" aria-hidden="true"></i> 2642</li>
+													</ul>
+												</div>
+												<div class="clearfix"> </div>
+											</div>
+											<div class="col-md-6 w3-agileits-news-left">
+												<div class="col-sm-5 wthree-news-img">
+													<a href="news-single.html"><img src="assets/m10.jpg" alt="" /></a>
+												</div>
+												<div class="col-sm-7 wthree-news-info">
+													<h5><a href="news-single.html">Salman Khan also roped in to Race 3 starring John.</a></h5>
+													<p>John Abraham is reportedly signed for the movie Race3. The film appears to be a superhit with housefull shows all over the country.</p>
+													<ul>
+														<li><i class="fa fa-clock-o" aria-hidden="true"></i> 24/09/2016</li>
+														<li><i class="fa fa-eye" aria-hidden="true"></i> 2642</li>
+													</ul>
+												</div>
+												<div class="clearfix"> </div>
+											</div>
+											<div class="clearfix"> </div>
+										</div>
+										<div class="wthree-news-top-left">
+											<div class="col-md-6 w3-agileits-news-left">
+												<div class="col-sm-5 wthree-news-img">
+													<a href="news-single.html"><img src="assets/m11.jpg" alt="" /></a>
+												</div>
+												<div class="col-sm-7 wthree-news-info">
+													<h5><a href="news-single.html">Salman Khan also roped in to Race 3 starring John.</a></h5>
+													<p>John Abraham is reportedly signed for the movie Race3. The film appears to be a superhit with housefull shows all over the country.</p>
+													<ul>
+														<li><i class="fa fa-clock-o" aria-hidden="true"></i> 24/09/2016</li>
+														<li><i class="fa fa-eye" aria-hidden="true"></i> 2642</li>
+													</ul>
+												</div>
+												<div class="clearfix"> </div>
+											</div>
+											<div class="col-md-6 w3-agileits-news-left">
+												<div class="col-sm-5 wthree-news-img">
+													<a href="news-single.html"><img src="assets/m12.jpg" alt="" /></a>
+												</div>
+												<div class="col-sm-7 wthree-news-info">
+													<h5><a href="news-single.html">Salman Khan also roped in to Race 3 starring John.</a></h5>
+													<p>John Abraham is reportedly signed for the movie Race3. The film appears to be a superhit with housefull shows all over the country.</p>
+													<ul>
+														<li><i class="fa fa-clock-o" aria-hidden="true"></i> 24/09/2016</li>
+														<li><i class="fa fa-eye" aria-hidden="true"></i> 2642</li>
+													</ul>
+												</div>
+												<div class="clearfix"> </div>
+											</div>
+											<div class="clearfix"> </div>
+										</div>
+										<div class="wthree-news-top-left">
+											<div class="col-md-6 w3-agileits-news-left">
+												<div class="col-sm-5 wthree-news-img">
+													<a href="news-single.html"><img src="assets/m13.jpg" alt="" /></a>
+												</div>
+												<div class="col-sm-7 wthree-news-info">
+													<h5><a href="news-single.html">Salman Khan also roped in to Race 3 starring John.</a></h5>
+													<p>John Abraham is reportedly signed for the movie Race3. The film appears to be a superhit with housefull shows all over the country.</p>
+													<ul>
+														<li><i class="fa fa-clock-o" aria-hidden="true"></i> 24/09/2016</li>
+														<li><i class="fa fa-eye" aria-hidden="true"></i> 2642</li>
+													</ul>
+												</div>
+												<div class="clearfix"> </div>
+											</div>
+											<div class="col-md-6 w3-agileits-news-left">
+												<div class="col-sm-5 wthree-news-img">
+													<a href="news-single.html"><img src="assets/m14.jpg" alt="" /></a>
+												</div>
+												<div class="col-sm-7 wthree-news-info">
+													<h5><a href="news-single.html">Salman Khan also roped in to Race 3 starring John.</a></h5>
+													<p>John Abraham is reportedly signed for the movie Race3. The film appears to be a superhit with housefull shows all over the country.</p>
+													<ul>
+														<li><i class="fa fa-clock-o" aria-hidden="true"></i> 24/09/2016</li>
+														<li><i class="fa fa-eye" aria-hidden="true"></i> 2642</li>
+													</ul>
+												</div>
+												<div class="clearfix"> </div>
+											</div>
+											<div class="clearfix"> </div>
+										</div>
+										<div class="wthree-news-top-left">
+											<div class="col-md-6 w3-agileits-news-left">
+												<div class="col-sm-5 wthree-news-img">
+													<a href="news-single.html"><img src="assets/m15.jpg" alt="" /></a>
+												</div>
+												<div class="col-sm-7 wthree-news-info">
+													<h5><a href="news-single.html">Salman Khan also roped in to Race 3 starring John.</a></h5>
+													<p>John Abraham is reportedly signed for the movie Race3. The film appears to be a superhit with housefull shows all over the country.</p>
+													<ul>
+														<li><i class="fa fa-clock-o" aria-hidden="true"></i> 24/09/2016</li>
+														<li><i class="fa fa-eye" aria-hidden="true"></i> 2642</li>
+													</ul>
+												</div>
+												<div class="clearfix"> </div>
+											</div>
+											<div class="col-md-6 w3-agileits-news-left">
+												<div class="col-sm-5 wthree-news-img">
+													<a href="news-single.html"><img src="assets/m16.jpg" alt="" /></a>
+												</div>
+												<div class="col-sm-7 wthree-news-info">
+													<h5><a href="news-single.html">Salman Khan also roped in to Race 3 starring John.</a></h5>
+													<p>John Abraham is reportedly signed for the movie Race3. The film appears to be a superhit with housefull shows all over the country.</p>
+													<ul>
+														<li><i class="fa fa-clock-o" aria-hidden="true"></i> 24/09/2016</li>
+														<li><i class="fa fa-eye" aria-hidden="true"></i> 2642</li>
+													</ul>
+												</div>
+												<div class="clearfix"> </div>
+											</div>
+											<div class="clearfix"> </div>
+										</div>
+									</div>
+									<div role="tabpanel" class="tab-pane fade" id="w3bsd" aria-labelledby="w3bsd-tab">
+										<div class="wthree-news-top-left">
+											<div class="col-md-6 w3-agileits-news-left">
+												<div class="col-sm-5 wthree-news-img">
+													<a href="news-single.html"><img src="assets/m17.jpg" alt="" /></a>
+												</div>
+												<div class="col-sm-7 wthree-news-info">
+													<h5><a href="news-single.html">Salman Khan also roped in to Race 3 starring John.</a></h5>
+													<p>John Abraham is reportedly signed for the movie Race3. The film appears to be a superhit with housefull shows all over the country.</p>
+													<ul>
+														<li><i class="fa fa-clock-o" aria-hidden="true"></i> 24/09/2016</li>
+														<li><i class="fa fa-eye" aria-hidden="true"></i> 2642</li>
+													</ul>
+												</div>
+												<div class="clearfix"> </div>
+											</div>
+											<div class="col-md-6 w3-agileits-news-left">
+												<div class="col-sm-5 wthree-news-img">
+													<a href="news-single.html"><img src="assets/m18.jpg" alt="" /></a>
+												</div>
+												<div class="col-sm-7 wthree-news-info">
+													<h5><a href="news-single.html">Salman Khan also roped in to Race 3 starring John.</a></h5>
+													<p>John Abraham is reportedly signed for the movie Race3. The film appears to be a superhit with housefull shows all over the country.</p>
+													<ul>
+														<li><i class="fa fa-clock-o" aria-hidden="true"></i> 24/09/2016</li>
+														<li><i class="fa fa-eye" aria-hidden="true"></i> 2642</li>
+													</ul>
+												</div>
+												<div class="clearfix"> </div>
+											</div>
+											<div class="clearfix"> </div>
+										</div>
+										<div class="wthree-news-top-left">
+											<div class="col-md-6 w3-agileits-news-left">
+												<div class="col-sm-5 wthree-news-img">
+													<a href="news-single.html"><img src="assets/m19.jpg" alt="" /></a>
+												</div>
+												<div class="col-sm-7 wthree-news-info">
+													<h5><a href="news-single.html">Salman Khan also roped in to Race 3 starring John.</a></h5>
+													<p>John Abraham is reportedly signed for the movie Race3. The film appears to be a superhit with housefull shows all over the country.</p>
+													<ul>
+														<li><i class="fa fa-clock-o" aria-hidden="true"></i> 24/09/2016</li>
+														<li><i class="fa fa-eye" aria-hidden="true"></i> 2642</li>
+													</ul>
+												</div>
+												<div class="clearfix"> </div>
+											</div>
+											<div class="col-md-6 w3-agileits-news-left">
+												<div class="col-sm-5 wthree-news-img">
+													<a href="news-single.html"><img src="assets/m20.jpg" alt="" /></a>
+												</div>
+												<div class="col-sm-7 wthree-news-info">
+													<h5><a href="news-single.html">Salman Khan also roped in to Race 3 starring John.</a></h5>
+													<p>John Abraham is reportedly signed for the movie Race3. The film appears to be a superhit with housefull shows all over the country.</p>
+													<ul>
+														<li><i class="fa fa-clock-o" aria-hidden="true"></i> 24/09/2016</li>
+														<li><i class="fa fa-eye" aria-hidden="true"></i> 2642</li>
+													</ul>
+												</div>
+												<div class="clearfix"> </div>
+											</div>
+											<div class="clearfix"> </div>
+										</div>
+										<div class="wthree-news-top-left">
+											<div class="col-md-6 w3-agileits-news-left">
+												<div class="col-sm-5 wthree-news-img">
+													<a href="news-single.html"><img src="assets/m21.jpg" alt="" /></a>
+												</div>
+												<div class="col-sm-7 wthree-news-info">
+													<h5><a href="news-single.html">Salman Khan also roped in to Race 3 starring John.</a></h5>
+													<p>John Abraham is reportedly signed for the movie Race3. The film appears to be a superhit with housefull shows all over the country.</p>
+													<ul>
+														<li><i class="fa fa-clock-o" aria-hidden="true"></i> 24/09/2016</li>
+														<li><i class="fa fa-eye" aria-hidden="true"></i> 2642</li>
+													</ul>
+												</div>
+												<div class="clearfix"> </div>
+											</div>
+											<div class="col-md-6 w3-agileits-news-left">
+												<div class="col-sm-5 wthree-news-img">
+													<a href="news-single.html"><img src="assets/m22.jpg" alt="" /></a>
+												</div>
+												<div class="col-sm-7 wthree-news-info">
+													<h5><a href="news-single.html">Salman Khan also roped in to Race 3 starring John.</a></h5>
+													<p>John Abraham is reportedly signed for the movie Race3. The film appears to be a superhit with housefull shows all over the country.</p>
+													<ul>
+														<li><i class="fa fa-clock-o" aria-hidden="true"></i> 24/09/2016</li>
+														<li><i class="fa fa-eye" aria-hidden="true"></i> 2642</li>
+													</ul>
+												</div>
+												<div class="clearfix"> </div>
+											</div>
+											<div class="clearfix"> </div>
+										</div>
+										<div class="wthree-news-top-left">
+											<div class="col-md-6 w3-agileits-news-left">
+												<div class="col-sm-5 wthree-news-img">
+													<a href="news-single.html"><img src="assets/m1.jpg" alt="" /></a>
+												</div>
+												<div class="col-sm-7 wthree-news-info">
+													<h5><a href="news-single.html">Salman Khan also roped in to Race 3 starring John.</a></h5>
+													<p>John Abraham is reportedly signed for the movie Race3. The film appears to be a superhit with housefull shows all over the country.</p>
+													<ul>
+														<li><i class="fa fa-clock-o" aria-hidden="true"></i> 24/09/2016</li>
+														<li><i class="fa fa-eye" aria-hidden="true"></i> 2642</li>
+													</ul>
+												</div>
+												<div class="clearfix"> </div>
+											</div>
+											<div class="col-md-6 w3-agileits-news-left">
+												<div class="col-sm-5 wthree-news-img">
+													<a href="news-single.html"><img src="assets/m2.jpg" alt="" /></a>
+												</div>
+												<div class="col-sm-7 wthree-news-info">
+													<h5><a href="news-single.html">Salman Khan also roped in to Race 3 starring John.</a></h5>
+													<p>John Abraham is reportedly signed for the movie Race3. The film appears to be a superhit with housefull shows all over the country.</p>
+													<ul>
+														<li><i class="fa fa-clock-o" aria-hidden="true"></i> 24/09/2016</li>
+														<li><i class="fa fa-eye" aria-hidden="true"></i> 2642</li>
+													</ul>
+												</div>
+												<div class="clearfix"> </div>
+											</div>
+											<div class="clearfix"> </div>
+										</div>
+										<div class="wthree-news-top-left">
+											<div class="col-md-6 w3-agileits-news-left">
+												<div class="col-sm-5 wthree-news-img">
+													<a href="news-single.html"><img src="assets/m3.jpg" alt="" /></a>
+												</div>
+												<div class="col-sm-7 wthree-news-info">
+													<h5><a href="news-single.html">Salman Khan also roped in to Race 3 starring John.</a></h5>
+													<p>John Abraham is reportedly signed for the movie Race3. The film appears to be a superhit with housefull shows all over the country.</p>
+													<ul>
+														<li><i class="fa fa-clock-o" aria-hidden="true"></i> 24/09/2016</li>
+														<li><i class="fa fa-eye" aria-hidden="true"></i> 2642</li>
+													</ul>
+												</div>
+												<div class="clearfix"> </div>
+											</div>
+											<div class="col-md-6 w3-agileits-news-left">
+												<div class="col-sm-5 wthree-news-img">
+													<a href="news-single.html"><img src="assets/m4.jpg" alt="" /></a>
+												</div>
+												<div class="col-sm-7 wthree-news-info">
+													<h5><a href="news-single.html">Salman Khan also roped in to Race 3 starring John.</a></h5>
+													<p>John Abraham is reportedly signed for the movie Race3. The film appears to be a superhit with housefull shows all over the country.</p>
+													<ul>
+														<li><i class="fa fa-clock-o" aria-hidden="true"></i> 24/09/2016</li>
+														<li><i class="fa fa-eye" aria-hidden="true"></i> 2642</li>
+													</ul>
+												</div>
+												<div class="clearfix"> </div>
+											</div>
+											<div class="clearfix"> </div>
+										</div>
+										<div class="wthree-news-top-left">
+											<div class="col-md-6 w3-agileits-news-left">
+												<div class="col-sm-5 wthree-news-img">
+													<a href="news-single.html"><img src="assets/m5.jpg" alt="" /></a>
+												</div>
+												<div class="col-sm-7 wthree-news-info">
+													<h5><a href="news-single.html">Salman Khan also roped in to Race 3 starring John.</a></h5>
+													<p>John Abraham is reportedly signed for the movie Race3. The film appears to be a superhit with housefull shows all over the country.</p>
+													<ul>
+														<li><i class="fa fa-clock-o" aria-hidden="true"></i> 24/09/2016</li>
+														<li><i class="fa fa-eye" aria-hidden="true"></i> 2642</li>
+													</ul>
+												</div>
+												<div class="clearfix"> </div>
+											</div>
+											<div class="col-md-6 w3-agileits-news-left">
+												<div class="col-sm-5 wthree-news-img">
+													<a href="news-single.html"><img src="assets/m6.jpg" alt="" /></a>
+												</div>
+												<div class="col-sm-7 wthree-news-info">
+													<h5><a href="news-single.html">Salman Khan also roped in to Race 3 starring John.</a></h5>
+													<p>John Abraham is reportedly signed for the movie Race3. The film appears to be a superhit with housefull shows all over the country.</p>
+													<ul>
+														<li><i class="fa fa-clock-o" aria-hidden="true"></i> 24/09/2016</li>
+														<li><i class="fa fa-eye" aria-hidden="true"></i> 2642</li>
+													</ul>
+												</div>
+												<div class="clearfix"> </div>
+											</div>
+											<div class="clearfix"> </div>
+										</div>
+										<div class="wthree-news-top-left">
+											<div class="col-md-6 w3-agileits-news-left">
+												<div class="col-sm-5 wthree-news-img">
+													<a href="news-single.html"><img src="assets/m7.jpg" alt="" /></a>
+												</div>
+												<div class="col-sm-7 wthree-news-info">
+													<h5><a href="news-single.html">Salman Khan also roped in to Race 3 starring John.</a></h5>
+													<p>John Abraham is reportedly signed for the movie Race3. The film appears to be a superhit with housefull shows all over the country.</p>
+													<ul>
+														<li><i class="fa fa-clock-o" aria-hidden="true"></i> 24/09/2016</li>
+														<li><i class="fa fa-eye" aria-hidden="true"></i> 2642</li>
+													</ul>
+												</div>
+												<div class="clearfix"> </div>
+											</div>
+											<div class="col-md-6 w3-agileits-news-left">
+												<div class="col-sm-5 wthree-news-img">
+													<a href="news-single.html"><img src="assets/m8.jpg" alt="" /></a>
+												</div>
+												<div class="col-sm-7 wthree-news-info">
+													<h5><a href="news-single.html">Salman Khan also roped in to Race 3 starring John.</a></h5>
+													<p>John Abraham is reportedly signed for the movie Race3. The film appears to be a superhit with housefull shows all over the country.</p>
+													<ul>
+														<li><i class="fa fa-clock-o" aria-hidden="true"></i> 24/09/2016</li>
+														<li><i class="fa fa-eye" aria-hidden="true"></i> 2642</li>
+													</ul>
+												</div>
+												<div class="clearfix"> </div>
+											</div>
+											<div class="clearfix"> </div>
+										</div>
+									</div>
+								
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 wthree-news-right">
+						<!-- news-right-top -->
+						<div class="news-right-top">
+							<div class="wthree-news-right-heading">
+								<h3>Updated News</h3>
+							</div>
+							<div class="wthree-news-right-top">
+								<div class="news-grids-bottom">
+									<!-- date -->
+									<div id="design" class="date">
+										<div id="cycler">   
+											<div class="date-text">
+												<a href="news-single.html">August 15,2016</a>
+												<p>Salman Khan also roped in to Race 3 starring John.</p>
+											</div>
+											<div class="date-text">
+												<a href="news-single.html">July 08,2016 <span class="blinking"><img src="assets/new.png" alt="" /></span></a>
+												<p>Nullam non turpis sit amet metus tristique egestas et et orci.</p>
+											</div>
+											<div class="date-text">
+												<a href="news-single.html">February 15,2016</a>
+												<p>Duis venenatis ac ipsum vel ultricies in placerat quam</p>
+											</div>
+											<div class="date-text">
+												<a href="news-single.html">January 15,2016 <span class="blinking"><img src="assets/new.png" alt="" /></span></a>
+												<p>Pellentesque ullamcorper fringilla ipsum, ornare dapibus velit volutpat sit amet.</p>
+											</div>
+											<div class="date-text">
+												<a href="news-single.html">September 24,2016</a>
+												<p>In lobortis ipsum mi, ac imperdiet elit pellentesque at.</p>
+											</div>
+											<div class="date-text">
+												<a href="news-single.html">August 15,2016</a>
+												<p>Salman Khan also roped in to Race 3 starring John.</p>
+											</div>
+											<div class="date-text">
+												<a href="news-single.html">July 08,2016 <span class="blinking"><img src="assets/new.png" alt="" /></span></a>
+												<p>Nullam non turpis sit amet metus tristique egestas et et orci.</p>
+											</div>
+											<div class="date-text">
+												<a href="news-single.html">February 15,2016</a>
+												<p>Duis venenatis ac ipsum vel ultricies in placerat quam</p>
+											</div>
+											<div class="date-text">
+												<a href="news-single.html">January 15,2016 <span class="blinking"><img src="assets/new.png" alt="" /></span></a>
+												<p>Pellentesque ullamcorper fringilla ipsum, ornare dapibus velit volutpat sit amet.</p>
+											</div>
+											<div class="date-text">
+												<a href="news-single.html">September 24,2016</a>
+												<p>In lobortis ipsum mi, ac imperdiet elit pellentesque at.</p>
+											</div>
+										</div>
+										<script>
+										function blinker() {
+											$('.blinking').fadeOut(500);
+											$('.blinking').fadeIn(500);
+										}
+										setInterval(blinker, 1000);
+										</script>
+										<script>
+											function cycle($item, $cycler){
+												setTimeout(cycle, 2000, $item.next(), $cycler);
+												
+												$item.slideUp(1000,function(){
+													$item.appendTo($cycler).show();        
+												});
+												}
+											cycle($('#cycler div:first'),  $('#cycler'));
+										</script>
+									</div>
+									<!-- //date -->
+								</div>
+							</div>
+						</div>
+						<!-- //news-right-top -->
+						<!-- news-right-bottom -->
+						<div class="news-right-bottom">
+							<div class="wthree-news-right-heading">
+								<h3>Top News</h3>
+							</div>
+							<div class="news-right-bottom-bg">
+								<div class="news-grids-bottom">
+									<div class="top-news-grid">
+										<div class="top-news-grid-heading">
+											<a href="news-single.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean rutrum ac nulla</a>
+										</div>
+										<div class="w3ls-news-t-grid top-t-grid">
+											<ul>
+												<li><a href="#"><i class="fa fa-clock-o"></i> 1h</a></li>
+												<li><a href="#"><i class="fa fa-user"></i> Vivamus nibh</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="top-news-grid">
+										<div class="top-news-grid-heading">
+											<a href="news-single.html">Duis orci enim, rutrum vel sodales ut, tincidunt nec turpis.</a>
+										</div>
+										<div class="w3ls-news-t-grid top-t-grid">
+											<ul>
+												<li><a href="#"><i class="fa fa-clock-o"></i> 3h</a></li>
+												<li><a href="#"><i class="fa fa-user"></i> Cras pretium</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="top-news-grid">
+										<div class="top-news-grid-heading">
+											<a href="news-single.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean rutrum ac nulla</a>
+										</div>
+										<div class="w3ls-news-t-grid top-t-grid">
+											<ul>
+												<li><a href="#"><i class="fa fa-clock-o"></i> 1h</a></li>
+												<li><a href="#"><i class="fa fa-user"></i> Vivamus nibh</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="top-news-grid">
+										<div class="top-news-grid-heading">
+											<a href="news-single.html">Duis orci enim, rutrum vel sodales ut, tincidunt nec turpis.</a>
+										</div>
+										<div class="w3ls-news-t-grid top-t-grid">
+											<ul>
+												<li><a href="#"><i class="fa fa-clock-o"></i> 3h</a></li>
+												<li><a href="#"><i class="fa fa-user"></i> Cras pretium</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="top-news-grid">
+										<div class="top-news-grid-heading">
+											<a href="news-single.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean rutrum ac nulla</a>
+										</div>
+										<div class="w3ls-news-t-grid top-t-grid">
+											<ul>
+												<li><a href="#"><i class="fa fa-clock-o"></i> 1h</a></li>
+												<li><a href="#"><i class="fa fa-user"></i> Vivamus nibh</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="top-news-grid">
+										<div class="top-news-grid-heading">
+											<a href="news-single.html">Duis orci enim, rutrum vel sodales ut, tincidunt nec turpis.</a>
+										</div>
+										<div class="w3ls-news-t-grid top-t-grid">
+											<ul>
+												<li><a href="#"><i class="fa fa-clock-o"></i> 3h</a></li>
+												<li><a href="#"><i class="fa fa-user"></i> Cras pretium</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- //news-right-bottom -->
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+	</div>
+	<div class="footer">
+		<div class="container">
+			<div class="w3ls_footer_grid">
+				<div class="col-md-6 w3ls_footer_grid_left">
+					<div class="w3ls_footer_grid_left1">
+						<h2>Subscribe to us</h2>
+						<div class="w3ls_footer_grid_left1_pos">
+							<form action="#" method="post">
+								<input type="email" name="email" placeholder="Your email..." required="">
+								<input type="submit" value="Send">
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 w3ls_footer_grid_right">
+					<a href="index.html"><h2>UGA<span>Movies</span></h2></a>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="col-md-5 w3ls_footer_grid1_left">
+				
+			</div>
+			
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+<!-- //footer -->
+<!-- Bootstrap Core JavaScript -->
+<script src="/assets/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+    $(".dropdown").hover(            
+        function() {
+            $('.dropdown-menu', this).stop( true, true ).slideDown("fast");
+            $(this).toggleClass('open');        
+        },
+        function() {
+            $('.dropdown-menu', this).stop( true, true ).slideUp("fast");
+            $(this).toggleClass('open');       
+        }
+    );
+});
+</script>
+<!-- //Bootstrap Core JavaScript -->
+<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			*/
+								
+			$().UItoTop({ easingType: 'easeOutQuart' });
+								
+			});
+	</script>
+<!-- //here ends scrolling icon -->

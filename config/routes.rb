@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   devise_for :users, skip: :sessions, :controllers => { :passwords => "users/passwords" }
   get 'after_checkout' => 'checkout#after_checkout'
   get 'coupon_code' => 'checkout#coupon_code'
+  get 'bulletin' => 'home#bulletin'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,63 +1,103 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+ <link href="/assets/home/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+
+
+
+
+        <div class="container-fluid">
+                <div class="container-fluid" style="width: 700px; border-style: solid; border-radius: 5px;
+    background-color: #f2f2f2; padding: 20px; height: 700px; "> 
+                  <h2 align="center">Edit User Information:</h2>
+  <form class="form-horizontal">
+    <div class="form-horizontal">
+    <div class="form-group">
+      
+     
+        </div>
+
+
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :fname %><br />
-    <%= f.text_field :fname, autofocus: true, autocomplete: "First name" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :lname %><br />
-    <%= f.text_field :lname, autofocus: true, autocomplete: "Last name" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :age %><br />
-    <%= f.number_field :age, autofocus: true, autocomplete: "Age" %>
-  </div>
+  <div class="field form-group">
+    <%= f.label "First Name" , :class=> "control-label col-sm-2" ,:for=>"username" %><br />
+      
+    <%= f.text_field :fname, :class=>"form-control", autofocus: true,   :placeholder=>"Change Username", autocomplete: "First name"%> 
+ 
+</div>
 
-  <div class="field">
-    <%= f.label :role %><br />
-    <%= f.text_field :role, autofocus: true, autocomplete: "Role" %>
-  </div>
+  <div class="field form-group">
+    <%= f.label "Last Name",  :class=> "control-label col-sm-2",  :for=>"firstName" %><br />
+  
+    <%= f.text_field :lname, :class=>"form-control", autofocus: true, :placeholder=>"Change First name", autocomplete: "Last name" %>
+  
+</div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  
+    <%#= f.label "Enter age", :class=> "control-label col-sm-2",  :for=>"age"   %>
+    <%#= f.number_field :age,  :class=>"form-control", autofocus: true, :placeholder=>"Enter age", autocomplete: "Age" %>
+ 
+
+  <!-- <div class="field form-group"> -->
+    <%#= f.label "Role", :class=> "control-label col-sm-2", :for=>"LastName" %><!-- <br /> -->
+    <%#= f.text_field :role, :class=>"form-control", autofocus: true, :placeholder=>"Change Last name", autocomplete: "Role" %>
+  <!-- </div> -->
+
+  <div class="field form-group">
+    <%= f.label "New email", :class=> "control-label col-sm-2", :for=>"Email" %><br />
+    <%= f.email_field :email,  :class=>"form-control", autofocus: true, :placeholder=>"Change Email", autocomplete: "email" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+  <div class="field form-group">
+    <%= f.label :password, :class=> "control-label col-sm-2", :for=>"Password" %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.password_field :password,  :class=>"form-control", :placeholder=>"New Password", autocomplete: "new-password" %>
     <% if @minimum_password_length %>
       <br />
       <em><%= @minimum_password_length %> characters minimum</em>
     <% end %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="field form-group">
+    <%= f.label "Password", :class=> "control-label col-sm-2", :for=>"Password" %><br />
+    <%= f.password_field :password_confirmation, :class=>"form-control", :placeholder=>"Confirm Password", autocomplete: "new-password" %>
   </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  <div class="field form-group">
+    <%= f.label :current_password , :class=> "control-label col-sm-2", :for=>"Password" %> <i>(we need your current password to confirm your changes)<br></i><br />
+    <%= f.password_field :current_password, :class=>"form-control", :placeholder=>"Earlier Password", autocomplete: "current-password" %>
   </div>
 
-  <div class="actions">
+  <div class="actions form-group">
     <%= f.submit "Update" %>
   </div>
-<% end %>
 
-<h3>Cancel my account</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
+
+                     <div class="actions form-group">
+                        <h5>Cancel Account?<br> <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %> <br></h5>
+                     </div>
+                 
+     
+
+
+
+
+
+<%= link_to "Back", root_path %>
+</div>
+</div>
+</div>
+
+    <% end %>
+
+
+
+ 

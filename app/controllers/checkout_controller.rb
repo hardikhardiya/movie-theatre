@@ -18,7 +18,9 @@ class CheckoutController < ApplicationController
 
   def after_checkout
     @order = Order.create(name: params[:name])
-    @ticket = Ticket.create(movie_id: params[:movie], hall: params[:hall], seat: params[:seats], movie_time: params[:time], show_id: params[:show_id].to_i)
+    @ticket = Ticket.create(movie_id: params[:movie_name], hall: params[:hall], seat: params[:seats], movie_time: params[:time], show_id: params[:show_id].to_i)
+    @movie = MovieList.find(params[:movie_name]).name
+    UserMailer.order_confirmation(@order, current_user).deliver
   end
 
   def coupon_code
