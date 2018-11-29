@@ -15,8 +15,10 @@
       
           <% @movie_lists.each do |movie_list| %>
 
+          <%if @movie_lists.count == 1 %>
 
             <div style="text-align:relative">
+
               <div class="col-md-2 w3l-movie-gride-agile">
                                <!--  <a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m15.jpg" title="album-name" class="img-responsive" alt=" " />
                   
@@ -31,10 +33,69 @@
                 
              <!--    </a> -->
     </div>
+    <div style="text-align:relative">
 
-                <!-- <div class="ribben">
-                  <p>NEW</p>
-                </div> -->
+              <div class="col-md-2 w3l-movie-gride-agile">
+                               <!--  <a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m15.jpg" title="album-name" class="img-responsive" alt=" " />
+                  
+                </a> -->
+                
+                           
+                </div>
+                  <div class="col-md-2 w3l-movie-gride-agile">
+                <!-- <a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m2.jpg" title="album-name" class="img-responsive" alt=" "  /> -->
+                    
+                
+             <!--    </a> -->
+    </div>
+    <div style="text-align:relative">
+
+              <div class="col-md-2 w3l-movie-gride-agile">
+                               <!--  <a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m15.jpg" title="album-name" class="img-responsive" alt=" " />
+                  
+                </a> -->
+                
+                           
+                </div>
+                  <div class="col-md-2 w3l-movie-gride-agile">
+                <!-- <a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m2.jpg" title="album-name" class="img-responsive" alt=" "  /> -->
+                  
+                
+             <!--    </a> -->
+    </div>
+    <div style="text-align:relative">
+
+              <div class="col-md-2 w3l-movie-gride-agile">
+                               <!--  <a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m15.jpg" title="album-name" class="img-responsive" alt=" " />
+                  
+                </a> -->
+                
+                           
+                </div>
+                  <div class="col-md-2 w3l-movie-gride-agile">
+                <!-- <a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m2.jpg" title="album-name" class="img-responsive" alt=" "  /> -->
+                  
+                
+             <!--    </a> -->
+    </div>
+          <% else %>
+                <div style="text-align:relative">
+
+              <div class="col-md-2 w3l-movie-gride-agile">
+                               <!--  <a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m15.jpg" title="album-name" class="img-responsive" alt=" " />
+                  
+                </a> -->
+                
+                           
+                </div>
+                  <div class="col-md-2 w3l-movie-gride-agile">
+                <!-- <a href="single.html" class="hvr-shutter-out-horizontal"><img src="assets/m2.jpg" title="album-name" class="img-responsive" alt=" "  /> -->
+                  <%= image_tag(movie_list.image) if movie_list.image? %>
+                  <h6><%= link_to movie_list.name, shows_path(:movie=>movie_list) %></h6>   
+                
+             <!--    </a> -->
+    </div>
+          <%end %>      
             
  <%end%>
               

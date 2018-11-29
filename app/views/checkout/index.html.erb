@@ -124,6 +124,7 @@
 	<!-- <script src="js/easy-responsive-tabs.js"></script> -->
 	<script>
 		$(document).ready(function () {
+
 			$("#after_check").validate({
 				debug: true,
 				rules: {
@@ -134,6 +135,7 @@
 				}
 			});
 			$( ".submit" ).click(function() {
+				
 				var name = $("#Username").val();
 				var card = $("#card").val();
 				var cvv = $("#cvv").val();
@@ -143,8 +145,10 @@
 				var time = $("#show_time").val();
 				var movie = $("#movie_name").val();
 				var show_id = $("#show_id").val();
+
         location.href = "/after_checkout?name="+name+"&seats="+seats+"&hall="+hall+"&time="+time+"&movie="+movie+"&show_id="+show_id;
 			});
+
 			$('#horizontalTab').easyResponsiveTabs({
 				type: 'default', //Types: default, vertical, accordion           
 				width: 'auto', //auto or any width like 600px

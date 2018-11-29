@@ -31,8 +31,8 @@ class CheckoutController < ApplicationController
     @movie_name = params[:movie_name]
     @name = params[:name]
     @seats = params[:seats]
-    @time = params[:time]
-    @hall = params[:hall]
+    @time = params[:show_time]
+    @hall = params[:show_hall]
     @show_id = params[:show_id]
     @number_of_seats = params[:number_seats].to_i
     @discount = Discount.where(:name => coupon, :movie_list_id => @movie_name.to_i)
