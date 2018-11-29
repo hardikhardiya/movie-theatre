@@ -118,9 +118,10 @@ input[type="submit"],.agileinfo_chat a,.w3ls_footer_grid1_left p a,.w3l_sign_in_
 }
 .w3l_sign_in_register ul li a:hover{
 	background:#212121;
+  display:inline-block;
 }
 .w3l_sign_in_register ul li{
-	display:inline-block;
+	
 	color:#212121;
 	font-size:1em;
 }
@@ -159,7 +160,7 @@ input[type="submit"],.agileinfo_chat a,.w3ls_footer_grid1_left p a,.w3l_sign_in_
 }
 .navbar-nav > li {
     float: left;
-    border-right: 1px dotted #fff;
+    border-right: 5px 
     width:14.27%;
     text-align: center;
 }

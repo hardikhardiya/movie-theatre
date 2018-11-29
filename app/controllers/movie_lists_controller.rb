@@ -1,4 +1,6 @@
 class MovieListsController < InheritedResources::Base
+	before_action :authenticate_user!
+	
 	def index
 		search = params[:search]
 		if search.present?

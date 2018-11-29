@@ -10,4 +10,8 @@ class UserMailer < ApplicationMailer
   	@order = order
   	mail(:to => user.email, :subject => "Confirmed! Order Id - #{order.id}")
   end	
+  def subscription_confirmation(user)
+    user
+    mail(:to => user, :subject => "UGA Movies News Letter")
+  end 
 end

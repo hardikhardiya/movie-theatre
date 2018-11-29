@@ -1,38 +1,45 @@
 
- <link href="/assets/home/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 
+<script>
+  addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
+</script>
+<link rel="stylesheet" href="/assets/font-awesome.min2.css" />
+<link href="/assets/style.css" rel='stylesheet' type='text/css' media="all">
+<link href="/assets/fonts.googleapis.com/css?family=Barlow:300,400,500" rel="stylesheet">
+<script src="/assets/Signup.js"></script>
 
-
-
-        <div class="container-fluid">
-                <div class="container-fluid" style="width: 700px; border-style: solid; border-radius: 5px;
-    background-color: #f2f2f2; padding: 20px; height: 700px; "> 
-                  <h2 align="center">Edit User Information:</h2>
-  <form class="form-horizontal">
-    <div class="form-horizontal">
-    <div class="form-group">
-      
-     
+<h1 class="header-w3ls">
+    </h1>
+    <div class="art-bothside" style="width:40%;" >
+      <div class="Up-sign-form text-center" >
+        <h2> EDIT PROFILE</h2>
+      </div>
+      <div class="mid-cls" >
+        
+            <div class="line-mid">
+            
         </div>
+      </div>  
+    <div class="art-right-w3ls", style= "text-align:left">
 
 
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
-
+ <div class="field form-left-w3l">
 
 
   <div class="field form-group">
-    <%= f.label "First Name" , :class=> "control-label col-sm-2" ,:for=>"username" %><br />
+    <%= f.label "First Name" , :class=> "clear",:for=>"username" %><br />
       
-    <%= f.text_field :fname, :class=>"form-control", autofocus: true,   :placeholder=>"Change Username", autocomplete: "First name"%> 
+    <%= f.text_field :fname,  :style=> 'height: 35px', autofocus: true,   :placeholder=>"Change Username", autocomplete: "First name"%> 
  
 </div>
 
   <div class="field form-group">
-    <%= f.label "Last Name",  :class=> "control-label col-sm-2",  :for=>"firstName" %><br />
+    <%= f.label "Last Name",  :class=> "clear",  :for=>"firstName" %><br />
   
-    <%= f.text_field :lname, :class=>"form-control", autofocus: true, :placeholder=>"Change First name", autocomplete: "Last name" %>
+    <%= f.text_field :lname, :style=> 'height: 35px', autofocus: true, :placeholder=>"Change First name", autocomplete: "Last name" %>
   
 </div>
 
@@ -47,8 +54,8 @@
   <!-- </div> -->
 
   <div class="field form-group">
-    <%= f.label "New email", :class=> "control-label col-sm-2", :for=>"Email" %><br />
-    <%= f.email_field :email,  :class=>"form-control", autofocus: true, :placeholder=>"Change Email", autocomplete: "email" %>
+    <%= f.label "New email", :class=> "clear", :for=>"Email" %><br />
+    <%= f.email_field :email,  :style=> 'height: 35px', autofocus: true, :placeholder=>"Change Email", autocomplete: "email" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -56,8 +63,8 @@
   <% end %>
 
   <div class="field form-group">
-    <%= f.label :password, :class=> "control-label col-sm-2", :for=>"Password" %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password,  :class=>"form-control", :placeholder=>"New Password", autocomplete: "new-password" %>
+    <%= f.label :password, :class=> "clear", :for=>"Password" %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.password_field :password,  :style=> 'height: 35px', :placeholder=>"New Password", autocomplete: "new-password" %>
     <% if @minimum_password_length %>
       <br />
       <em><%= @minimum_password_length %> characters minimum</em>
@@ -65,13 +72,13 @@
   </div>
 
   <div class="field form-group">
-    <%= f.label "Password", :class=> "control-label col-sm-2", :for=>"Password" %><br />
-    <%= f.password_field :password_confirmation, :class=>"form-control", :placeholder=>"Confirm Password", autocomplete: "new-password" %>
+    <%= f.label "Password", :class=> "clear", :for=>"Password" %><br />
+    <%= f.password_field :password_confirmation, :style=> 'height: 35px', :placeholder=>"Confirm Password", autocomplete: "new-password" %>
   </div>
 
   <div class="field form-group">
-    <%= f.label :current_password , :class=> "control-label col-sm-2", :for=>"Password" %> <i>(we need your current password to confirm your changes)<br></i><br />
-    <%= f.password_field :current_password, :class=>"form-control", :placeholder=>"Earlier Password", autocomplete: "current-password" %>
+    <%= f.label :current_password , :class=> "clear", :for=>"Password" %> <i>(we need your current password to confirm your changes)<br></i><br />
+    <%= f.password_field :current_password, :style=> 'height: 35px', :placeholder=>"Earlier Password", autocomplete: "current-password" %>
   </div>
 
   <div class="actions form-group">

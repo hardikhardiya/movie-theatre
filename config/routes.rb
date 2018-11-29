@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   get 'after_checkout' => 'checkout#after_checkout'
   get 'coupon_code' => 'checkout#coupon_code'
   get 'bulletin' => 'home#bulletin'
+  get 'home/user_edit' => 'home#user_edit'
+  get 'home/subscribe_mail' => 'home#subscribe_mail'
+  get "*path" => redirect("/")
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

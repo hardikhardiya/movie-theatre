@@ -48,15 +48,11 @@
                             <%= hidden_field_tag :show_id, @show.id %>
                         </div>
                     </div>
-                    <button onclick="takeData()">Start Selecting</button>
-                </div>
+                    <button onclick="takeData()">Start Selecting</button><br>
+                </div><br>
                 <!-- //input fields -->
                 <!-- seat availabilty list -->
-                <ul class="seat_w3ls">
-                    <li class="smallBox greenBox">Selected Seat</li>
-                    <li class="smallBox redBox">Reserved Seat</li>
-                    <li class="smallBox emptyBox">Empty Seat</li>
-                </ul>
+               
                 <!-- seat availabilty list -->
                 <!-- seat layout -->
                 <div class="seatStructure txt-center" style="overflow-x:auto;">
@@ -565,6 +561,10 @@
                     for (i = 0; i <= seats_listing.length; i++) {
                         checkWithValue(seats_listing[i]);
                     }
+            }
+            if ($("#Numseats").val()>60){
+               alert("Please enter Less values");
+               location.reload();
             }
         }
 

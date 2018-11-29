@@ -1,8 +1,8 @@
-ActiveAdmin.register Show do
+ActiveAdmin.register Hall do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-permit_params :movie_list_id, :show_time
+permit_params :hall_name, :hall_seats
 #
 # or
 #

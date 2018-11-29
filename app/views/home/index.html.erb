@@ -63,9 +63,8 @@
 			</div>
 			<div class="w3l_sign_in_register">
 				<ul>
-					<li> (+1)706 308 8062</li>
 					<% if user_signed_in? %>
-								<li> Logged in as <strong><%= current_user.email %></strong>.</li>
+								<li> Logged in as <strong><%= current_user.fname%></strong>.</li>
 								
 								
 
@@ -110,18 +109,18 @@
 						<ul class="nav navbar-nav" style="list-style: none">
 							<li class="active"><%= link_to "Home", root_path%></li>
 							<li>
-                               <%= link_to "Book Tickets", movie_lists_path%>
+                               <%= link_to"Book Tickets", movie_lists_path%>
 							</li>
 							<li><%= link_to "News", bulletin_path, method: :get%></li>
 							
-							<li>  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
+							<li>  <%= link_to 'Edit profile', home_user_edit_path, :class => 'navbar-link' %></li>
 							
 							<li>  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
 								</li>
 
 		 
 							<% else %>
-							  	<li>
+							  	<li style=" display: inline-block;">
 								  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></li>
 								<li>  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
 								<!-- <li>  <%#= link_to "Admin", admin_user_session_path, :class => 'navbar-link'  %>
@@ -130,6 +129,7 @@
 						</ul>
 					</nav>
 				</div>
+
 			</nav>	
 		</div>
 	</div>
@@ -137,7 +137,7 @@
 <!-- banner -->
 	<div id="slidey" style="display:none;">
 		<ul>
-			<li><img src="assets/5.jpg" alt=" "><p class='title'>Tarzan</p><p class='description'> Tarzan, having acclimated to life in London, is called back to his former home in the jungle to investigate the activities at a mining encampment.</p></li>
+			<li><img src="assets/5.jpg" alt=" "><p class='title'>Tarzan</p><p class='description'>Six children, genetically cross-bred with avian DNA, take flight around the country to discover their origins. Along the way, their mysterious past is ...</p></li>
 			<li><img src="assets/2.jpg" alt=" "><p class='title'>Maximum Ride</p><p class='description'>Six children, genetically cross-bred with avian DNA, take flight around the country to discover their origins. Along the way, their mysterious past is ...</p></li>
 			<li><img src="assets/3.jpg" alt=" "><p class='title'>Independence</p><p class='description'>The fate of humanity hangs in the balance as the U.S. President and citizens decide if these aliens are to be trusted ...or feared.</p></li>
 			<li><img src="assets/4.jpg" alt=" "><p class='title'>Central Intelligence</p><p class='description'>Bullied as a teen for being overweight, Bob Stone (Dwayne Johnson) shows up to his high school reunion looking fit and muscular. Claiming to be on a top-secret ...</p></li>
@@ -145,8 +145,8 @@
 			<li><img src="assets/7.jpg" alt=" "><p class='title'>X - Man</p><p class='description'>In 1977, paranormal investigators Ed (Patrick Wilson) and Lorraine Warren come out of a self-imposed sabbatical to travel to Enfield, a borough in north ...</p></li>
 		</ul>   	
     </div>
-    <script src="/assets/jquery.slidey.js"></script>
-    <script src="/assets/jquery.dotdotdot.min.js"></script>
+    <script src="assets/jquery.slidey.js"></script>
+    <script src="assets/jquery.dotdotdot.min.js"></script>
 	   <script type="text/javascript">
 			$("#slidey").slidey({
 				interval: 8000,
@@ -682,10 +682,11 @@
 					<div class="w3ls_footer_grid_left1">
 						<h2>Subscribe to us</h2>
 						<div class="w3ls_footer_grid_left1_pos">
-							<form action="#" method="post">
-								<input type="email" name="email" placeholder="Your email..." required="">
-								<input type="submit" value="Send">
-							</form>
+							<%= form_tag home_subscribe_mail_path, method: :get do%>
+							    <%= email_field_tag 'email_subs', "", id: "email_subscribe", :placeholder=>"Your email..." , :required => true%>
+								
+								<%= submit_tag "send" %>
+							<% end %>
 						</div>
 					</div>
 				</div>

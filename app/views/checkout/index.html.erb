@@ -37,6 +37,10 @@
 											<label class="control-label">Name on Card</label>
 											<%= text_field_tag 'username', @name, id: "Username", :class => "billing-address-name form-control" %>
 										</div>
+										<div class="controls">
+											<label class="control-label">Billing Address</label>
+											<%= text_field_tag 'address', current_user.address, id: "Username", :class => "billing-address-name form-control" %>
+										</div>
 										<%= hidden_field_tag :seats, @seats %>
 										<%= hidden_field_tag :show_time, @time %>
 										<%= hidden_field_tag :show_hall, @hall %>
@@ -49,7 +53,7 @@
 													<!-- <input class="number credit-card-number form-control" type="text" name="number"
 																  inputmode="numeric" autocomplete="cc-number" autocompletetype="cc-number" x-autocompletetype="cc-number"
 																  placeholder="&#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149;"> -->
-																  <%= text_field_tag 'card', "", id: "card", :class => "number credit-card-number form-control", :placeholder=> "Card Details", :required => true %> </br>
+																  <%= text_field_tag 'card', current_user.credit_card, id: "card", :class => "number credit-card-number form-control", :placeholder=> "Card Details", :required => true %> </br>
 												</div> 
 											</div>
 											<div class="w3_agileits_card_number_grid_right">
@@ -59,7 +63,7 @@
 																  inputmode="numeric"
 																  type="text" name="security-code"
 																  placeholder="&#149;&#149;&#149;"> -->
-													<%= text_field_tag 'cvv', "", id: "cvv", :class => "security-code form-control", :placeholder=> "CVV", :required => true %></br>			  
+													<%= text_field_tag 'cvv', current_user.cvv, id: "cvv", :class => "security-code form-control", :placeholder=> "CVV", :required => true %></br>			  
 												</div>
 											</div>
 											<div class="clear"> </div>
@@ -67,7 +71,7 @@
 										<div class="controls">
 											<label class="control-label">Expiration Date</label>
 											<!-- <input class="expiration-month-and-year form-control" type="text" name="expiration-month-and-year" placeholder="MM / YY"> -->
-											<%= text_field_tag 'expire', "", id: "expire", :class => "expiration-month-and-year form-control", :placeholder=> "MM / YY", :required => true %>
+											<%= text_field_tag 'expire', current_user.expiration, id: "expire", :class => "expiration-month-and-year form-control", :placeholder=> "MM / YY", :required => true %>
 										</div>
 									</div>
 									<%= submit_tag "Make a payment", :class => "submit" %>
@@ -125,6 +129,7 @@
 				rules: {
 					“card“: {required: true},
 					“cvv“: {required: true},
+					“expire“: {required: true},
 					“expire“: {required: true}
 				}
 			});

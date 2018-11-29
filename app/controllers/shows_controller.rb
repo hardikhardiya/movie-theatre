@@ -1,4 +1,5 @@
 class ShowsController < InheritedResources::Base
+    before_action :authenticate_user!
 
 	def index
 		@movie = MovieList.find(params[:movie])
