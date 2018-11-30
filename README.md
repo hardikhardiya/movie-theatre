@@ -3,6 +3,8 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
+Its an college(CSCI-6050) movie booking project!
+
 Things you may want to cover:
 
 * Ruby version
