@@ -85,7 +85,7 @@ Rails.application.configure do
   #   :port                 => "587",
   #   :domain               => "smtp.gmail.com",
   #   :user_name            => "hardikhardiya@gmail.com",
-  #   :password             => "myworld1",
+  #   :password             => "******",
   #   :authentication       => 'plain', 
   #   :enable_starttls_auto => true  }
   # Raises error for missing translations
